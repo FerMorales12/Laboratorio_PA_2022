@@ -34,6 +34,8 @@ namespace Lab4DiegoMorales1209817 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ BtnRepartir;
+	protected:
 
 	private:
 		/// <summary>
@@ -48,11 +50,32 @@ namespace Lab4DiegoMorales1209817 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->BtnRepartir = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// BtnRepartir
+			// 
+			this->BtnRepartir->Location = System::Drawing::Point(142, 254);
+			this->BtnRepartir->Name = L"BtnRepartir";
+			this->BtnRepartir->Size = System::Drawing::Size(163, 54);
+			this->BtnRepartir->TabIndex = 0;
+			this->BtnRepartir->Text = L"Repartir";
+			this->BtnRepartir->UseVisualStyleBackColor = true;
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::SystemColors::Control;
+			this->ClientSize = System::Drawing::Size(445, 341);
+			this->Controls->Add(this->BtnRepartir);
+			this->MaximizeBox = false;
+			this->MinimizeBox = false;
+			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"MyForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};

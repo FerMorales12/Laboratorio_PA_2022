@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Nodo.h"
 
 /// <summary>
 /// Colección de objetos que puede ser accesible por posición/índice.
@@ -20,6 +20,8 @@ class List
 		/// Apuntador hacia siguiente Nodo
 		/// </summary>
 		Node* next;
+		
+		Node* Tail;
 	};
 
 private:
