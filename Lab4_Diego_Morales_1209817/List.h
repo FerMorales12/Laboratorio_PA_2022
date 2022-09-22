@@ -50,7 +50,7 @@ public:
 	/// Verifica si el elemento indicado se encuentra en la lista
 	/// </summary>
 	/// <param name="item">Elemento a verificar</param>
-	/// <returns>Verdadero si el elemento está en la lista, Falso en caso contra-rio</returns>
+	/// <returns>Verdadero si el elemento está en la lista, Falso en caso contrario</returns>
 	bool Contains(int item);
 
 	/// <summary>
