@@ -1,5 +1,5 @@
 #pragma once
-#include "Nodo.h"
+
 
 /// <summary>
 /// Colección de objetos que puede ser accesible por posición/índice.
@@ -36,6 +36,12 @@ public:
 	/// </summary>
 	/// <param name="item">Elemento a agregar</param>
 	void Add(int item);
+
+	/// <summary>
+	/// Agrega un elemento al principio de la lista
+	/// </summary>
+	/// <param name="item">Elemento a agregar</param>
+	void AddStart(int item);
 
 	/// <summary>
 	/// Elimina todos los elementos de la Lista.
