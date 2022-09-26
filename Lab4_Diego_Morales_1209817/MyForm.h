@@ -35,6 +35,7 @@ namespace Lab4DiegoMorales1209817 {
 			}
 		}
 	private: System::Windows::Forms::Button^ BtnRepartir;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	protected:
 
 	private:
@@ -51,6 +52,8 @@ namespace Lab4DiegoMorales1209817 {
 		void InitializeComponent(void)
 		{
 			this->BtnRepartir = (gcnew System::Windows::Forms::Button());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// BtnRepartir
@@ -62,18 +65,28 @@ namespace Lab4DiegoMorales1209817 {
 			this->BtnRepartir->Text = L"Repartir";
 			this->BtnRepartir->UseVisualStyleBackColor = true;
 			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(3, 1);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(440, 227);
+			this->dataGridView1->TabIndex = 1;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::Control;
 			this->ClientSize = System::Drawing::Size(445, 341);
+			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->BtnRepartir);
 			this->MaximizeBox = false;
 			this->MinimizeBox = false;
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 
 		}
