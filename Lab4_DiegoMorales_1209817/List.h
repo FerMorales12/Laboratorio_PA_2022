@@ -1,16 +1,8 @@
+#include "Node.h"
+
 #pragma once
 ref class List
 {
-	/// <summary>
-	/// Nodo simplemente enlazado
-	/// </summary>
-	
-
-private:
-	/// <summary>
-	/// Apuntador al primer Nodo dentro de la lista (cabeza)
-	/// </summary>
-	Node* header = nullptr;
 
 public:
 	/// <summary>
