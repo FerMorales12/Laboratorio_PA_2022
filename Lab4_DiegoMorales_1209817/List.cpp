@@ -45,7 +45,7 @@ void List::Insert(int index, int item) {
 
 int List::GetItem(int index) {
 	int counter = 0;
-	Node^ temp = gcnew Node();
+	Node^ temp = gcnew Node();//el nodo temporal almacenará el dato con el indice n
 	while ((temp)&& counter <=index)
 	{
 		if (counter < index)
