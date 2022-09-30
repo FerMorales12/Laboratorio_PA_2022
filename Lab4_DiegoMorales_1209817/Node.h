@@ -4,6 +4,7 @@
 	/// </summary>
 ref class Node
 {
+public:
 	
 		/// <summary>
 		/// Información a almacenar
@@ -14,6 +15,7 @@ ref class Node
 		/// Apuntador hacia siguiente Nodo
 		/// </summary>
 		Node^ next;
+		
 private:
 	/// <summary>
 	/// Apuntador al primer Nodo dentro de la lista (cabeza)

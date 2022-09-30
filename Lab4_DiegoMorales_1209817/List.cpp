@@ -1,7 +1,16 @@
 #include "List.h"
 
-void List::Add(int item) {
 
+
+void List::Add(int item) {
+	Node^ newNode = gcnew Node();
+	newNode->data = item;
+	if (IsEmpty()) {//lo inserta al final de la lista
+		start = newNode;
+		end = newNode;
+	}
+	count++;
+	
 }
 
 void List::Clear() {
@@ -44,6 +53,3 @@ void List::RemoveAt(int index) {
 
 }
 
-bool List::IsEmpty() {
-	return count=0;
-}

@@ -5,7 +5,9 @@ ref class List
 {
 
 public:
-	int count;
+	Node^ start;
+	Node^ end;
+	int count=0;
 	/// <summary>
 	/// Agrega un elemento al FINAL de la lista
 	/// </summary>
@@ -82,6 +84,6 @@ public:
 	/// <exception cref="System.ArgumentOutOfRangeException">index menor a 0 o index mayor o igual a Count</exception>
 	void RemoveAt(int index);
 
-	bool IsEmpty();
+	
 };
 
