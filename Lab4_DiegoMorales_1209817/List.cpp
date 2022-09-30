@@ -43,3 +43,7 @@ bool List::Remove(int item) {
 void List::RemoveAt(int index) {
 
 }
+
+bool List::IsEmpty() {
+	return count=0;
+}
