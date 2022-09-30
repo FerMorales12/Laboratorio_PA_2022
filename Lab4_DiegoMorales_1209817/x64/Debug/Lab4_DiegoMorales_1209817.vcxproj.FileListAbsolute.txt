@@ -1,0 +1,3 @@
+C:\Users\USUARIO1\Desktop\Tareas\LabProgra\Laboratorio_PA_2022\Lab4_DiegoMorales_1209817\x64\Debug\Lab4_DiegoMorales_1209817.vcxproj.AssemblyReference.cache
+C:\Users\USUARIO1\Desktop\Tareas\LabProgra\Laboratorio_PA_2022\Lab4_DiegoMorales_1209817\x64\Debug\Lab4_DiegoMorales_1209817.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\USUARIO1\Desktop\Tareas\LabProgra\Laboratorio_PA_2022\Lab4_DiegoMorales_1209817\x64\Debug\Lab4_DiegoMorales_1209817.exe
