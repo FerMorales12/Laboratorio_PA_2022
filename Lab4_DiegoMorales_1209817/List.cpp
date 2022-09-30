@@ -32,6 +32,10 @@ void List::SetItem(int index, int item) {
 
 }
 
+int List::LastIndexOf(int item) {
+
+}
+
 bool List::Remove(int item) {
 
 }
