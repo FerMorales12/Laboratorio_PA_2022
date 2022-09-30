@@ -4,18 +4,7 @@ ref class List
 	/// <summary>
 	/// Nodo simplemente enlazado
 	/// </summary>
-	class Node
-	{
-		/// <summary>
-		/// Información a almacenar
-		/// </summary>
-		int data;
-
-		/// <summary>
-		/// Apuntador hacia siguiente Nodo
-		/// </summary>
-		Node* next;
-	};
+	
 
 private:
 	/// <summary>
