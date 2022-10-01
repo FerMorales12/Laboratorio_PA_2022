@@ -44,7 +44,14 @@ bool List::Contains(int item) {
 }
 
 int List::IndexOf(int item) {
-	return -1;
+	Node^ buscar = gcnew Node();
+	int* index;
+	buscar->data = *index;
+	if (*index != 0||index!=nullptr) {
+		return *index;
+	}
+	else
+		return -1;
 }
 
 void List::Insert(int index, int item) {//Inserta en una posición arbitraria en la lista
