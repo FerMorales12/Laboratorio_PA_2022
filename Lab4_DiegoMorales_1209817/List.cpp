@@ -83,7 +83,12 @@ int List::GetItem(int index) {
 void List::SetItem(int index, int item) {//Si el elemento está en 7, moverlo a 4
 	Node^ temp = gcnew Node();
 	Node^ pretemp = gcnew Node();
-
+	Node^ actual = gcnew Node();//apuntador del elemento a mover
+	if (actual != nullptr) {
+		pretemp->next = actual;
+		actual->next = temp;
+		count++;
+	}
 }
 
 int List::LastIndexOf(int item) {
