@@ -1,7 +1,5 @@
 #include "List.h"
 
-
-
 void List::Add(int item) {
 	Node^ newNode = gcnew Node();
 	newNode->data = item;
@@ -25,6 +23,7 @@ void List::Clear() {
 		start->next = aux;
 		delete &aux;
 	}
+	delete start;//Borra el primer elemento de la lista
 }
 
 int List::Count(int count) {
@@ -32,6 +31,15 @@ int List::Count(int count) {
 }
 
 bool List::Contains(int item) {
+	Node^ buscar = gcnew Node();
+	buscar->data = item;
+	/*Obtenido de: https://www.youtube.com/watch?v=W86jnUUY2zA */
+	while (buscar != nullptr && buscar->data <= count) {
+		if (buscar->data == count) {
+			return true;
+		}
+		buscar = buscar->next;
+	}
 	return false;
 }
 
@@ -115,8 +123,10 @@ bool List::Remove(int item) {
 	if (start->next != nullptr) {
 		start->next = nullptr;
 		temp = start;
-		return true;
+		temp->data = item;
 		count--;
+		return true;
+		
 	}
 	else
 		return false;
@@ -127,7 +137,8 @@ void List::RemoveAt(int index) {
 	Node^ pretemp = gcnew Node();
 	Node^ borrar = gcnew Node();
 	borrar->next = temp;
-	if (borrar->next != nullptr) {
+	int position = 0;
+	if (borrar->next != nullptr && position<index) {//se asegura que el puntero a borrar no sea nulo, y que el elemento esté en la lista
 		pretemp->next = borrar;
 		borrar->next = nullptr;
 		pretemp->next = temp;
