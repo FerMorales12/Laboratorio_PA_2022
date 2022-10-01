@@ -38,7 +38,7 @@ Pila^ Pila::Llenar() {
 	while (cantidad<52)
 	{
 		Random rnd;
-		int i;
+		int i=rnd.Next(0,53);
 		if (ListaCartas[i] != 0)
 		{
 			Mazo->Push(i, "N" || "R");
