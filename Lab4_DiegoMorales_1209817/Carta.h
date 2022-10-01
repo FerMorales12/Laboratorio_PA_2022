@@ -1,7 +1,8 @@
 #pragma once
 ref class Carta
 {
-	int Numero;
+public:
+	int numero;
 	char color;
 	Carta^ Next;
 };
