@@ -1,3 +1,6 @@
+#include "Carta.h"
+#include "List.h"
+#include "Pila.h"
 #pragma once
 
 namespace Lab4DiegoMorales1209817 {
@@ -70,9 +73,12 @@ namespace Lab4DiegoMorales1209817 {
 			this->Controls->Add(this->BtnSacar);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
