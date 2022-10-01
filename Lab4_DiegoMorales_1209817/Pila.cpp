@@ -1,5 +1,7 @@
 #include "Pila.h"
 
+using namespace System;
+
 void Pila::Push(int numero, char color) {
 	Carta^ Nueva = gcnew Carta();
 	Nueva->numero = numero;
@@ -23,4 +25,26 @@ Carta^ Pila::Pop() {
 
 Carta^ Pila::Top() {
 	return Cabeza;
+}
+
+Pila^ Pila::Llenar() {
+	Pila^ Mazo = gcnew Pila();
+	int ListaCartas[52];
+	for (int i = 0; i < 52; i++)
+	{
+		ListaCartas[i] = ((i + 1) % 25) + 1;
+	}
+	int cantidad = 0;
+	while (cantidad<52)
+	{
+		Random rnd;
+		int i;
+		if (ListaCartas[i] != 0)
+		{
+			Mazo->Push(i, "N" || "R");
+			ListaCartas[i] = 0;
+			cantidad++;
+		}
+	}
+	return Mazo;
 }

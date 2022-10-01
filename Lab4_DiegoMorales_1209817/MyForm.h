@@ -53,26 +53,22 @@ namespace Lab4DiegoMorales1209817 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->BtnSacar = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// BtnSacar
 			// 
-			this->BtnSacar->Location = System::Drawing::Point(299, 252);
+			resources->ApplyResources(this->BtnSacar, L"BtnSacar");
 			this->BtnSacar->Name = L"BtnSacar";
-			this->BtnSacar->Size = System::Drawing::Size(119, 50);
-			this->BtnSacar->TabIndex = 0;
-			this->BtnSacar->Text = L"Sacar carta";
 			this->BtnSacar->UseVisualStyleBackColor = true;
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			resources->ApplyResources(this, L"$this");
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(446, 324);
 			this->Controls->Add(this->BtnSacar);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 

@@ -8,5 +8,6 @@ public:
 	void Push(int numero, char color);
 	Carta^ Pop();
 	Carta^ Top();
+	Pila^ Llenar();
 };
 
