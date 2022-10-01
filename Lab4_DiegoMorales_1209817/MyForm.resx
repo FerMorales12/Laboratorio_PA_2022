@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BtnSacar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 318</value>
+    <value>617, 318</value>
   </data>
   <data name="BtnSacar.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 50</value>
@@ -129,7 +129,7 @@
     <value>0</value>
   </data>
   <data name="BtnSacar.Text" xml:space="preserve">
-    <value>Sacar carta</value>
+    <value>Jugar</value>
   </data>
   <data name="&gt;&gt;BtnSacar.Name" xml:space="preserve">
     <value>BtnSacar</value>

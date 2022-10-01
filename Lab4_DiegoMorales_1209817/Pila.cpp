@@ -41,7 +41,7 @@ Pila^ Pila::Llenar() {
 		int i=rnd.Next(0,53);
 		if (ListaCartas[i] != 0)
 		{
-			Mazo->Push(i, "N" || "R");
+			Mazo->Push(i, Convert::ToChar("N") || Convert::ToChar("R"));
 			ListaCartas[i] = 0;
 			cantidad++;
 		}

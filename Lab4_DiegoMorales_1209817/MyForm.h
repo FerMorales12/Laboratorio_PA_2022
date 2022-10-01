@@ -83,6 +83,7 @@ namespace Lab4DiegoMorales1209817 {
 			resources->ApplyResources(this->BtnSacar, L"BtnSacar");
 			this->BtnSacar->Name = L"BtnSacar";
 			this->BtnSacar->UseVisualStyleBackColor = true;
+			this->BtnSacar->Click += gcnew System::EventHandler(this, &MyForm::BtnSacar_Click);
 			// 
 			// label1
 			// 
@@ -154,5 +155,21 @@ namespace Lab4DiegoMorales1209817 {
 	
 
 	}
-	};
+	private: System::Void BtnSacar_Click(System::Object^ sender, System::EventArgs^ e) {
+		Pila^ Mazo = gcnew Pila();
+		Carta^ carta = gcnew Carta();
+		
+		Mazo->Llenar();
+		Mazo->Top();
+		carta = Mazo->Top();
+		
+		List^ L1 = gcnew List();
+		List^ L2 = gcnew List();
+		List^ L3 = gcnew List();
+		List^ L4= gcnew List();
+		List^ L5 = gcnew List();
+		List^ L6 = gcnew List();
+		List^ L7 = gcnew List();
+	}
+};
 }
