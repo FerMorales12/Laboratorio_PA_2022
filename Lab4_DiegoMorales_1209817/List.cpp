@@ -5,7 +5,7 @@
 void List::Add(int item) {
 	Node^ newNode = gcnew Node();
 	newNode->data = item;
-	if (Count()==0) {//la lista está vacía 
+	if (Count(count)==0) {//la lista está vacía 
 		start = newNode;
 		end = newNode;
 	}
@@ -27,7 +27,7 @@ void List::Clear() {
 	}
 }
 
-int List::Count() {
+int List::Count(int count) {
 	return count;
 }
 
@@ -42,7 +42,7 @@ int List::IndexOf(int item) {
 void List::Insert(int index, int item) {//Inserta en una posición arbitraria en la lista
 	Node^ newNode = gcnew Node();
 	newNode->data = item;
-	if (Count() || index == 0) {
+	if (Count(count) || index == 0) {
 		Add(item);
 	}
 	else {
@@ -99,11 +99,26 @@ void List::SetItem(int index, int item) {//Si el elemento está en 7, moverlo a 4
 }
 
 int List::LastIndexOf(int item) {
-	return -1;
+	Node^ last = gcnew Node();
+	Node^ temp = gcnew Node();
+	temp->next = last;
+	if (last->next = nullptr) {
+		return last->data;
+	}
+	else
+		return -1;
 }
 
 bool List::Remove(int item) {
-	return true;
+	Node^ temp = gcnew Node();
+	
+	if (start->next != nullptr) {
+		start->next = temp;
+		temp = start;
+		return true;
+	}
+	else
+		return false;
 }
 
 void List::RemoveAt(int index) {

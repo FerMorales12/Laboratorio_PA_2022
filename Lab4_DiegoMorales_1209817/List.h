@@ -23,7 +23,7 @@ public:
 	/// Cuenta la cantidad de elementos en la lista
 	/// </summary>
 	/// <returns>Cantidad de elementos en la lista</returns>
-	int Count();
+	int Count(int count);
 
 	/// <summary>
 	/// Verifica si el elemento indicado se encuentra en la lista
