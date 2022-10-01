@@ -116,12 +116,23 @@ bool List::Remove(int item) {
 		start->next = temp;
 		temp = start;
 		return true;
+		count--;
 	}
 	else
 		return false;
 }
 
 void List::RemoveAt(int index) {
-
+	Node^ temp = gcnew Node();
+	Node^ pretemp = gcnew Node();
+	Node^ borrar = gcnew Node();
+	borrar->next = temp;
+	if (borrar->next != nullptr) {
+		pretemp->next = borrar;
+		borrar->next = nullptr;
+		pretemp->next = temp;
+		delete borrar;
+		count--;
+	}
 }
 
