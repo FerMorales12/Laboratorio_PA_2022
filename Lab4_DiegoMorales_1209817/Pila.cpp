@@ -20,3 +20,7 @@ Carta^ Pila::Pop() {
 	length--;
 	return Salida;
 }
+
+Carta^ Pila::Top() {
+	return Cabeza;
+}
