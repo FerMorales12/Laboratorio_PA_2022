@@ -113,7 +113,7 @@ bool List::Remove(int item) {
 	Node^ temp = gcnew Node();
 	
 	if (start->next != nullptr) {
-		start->next = temp;
+		start->next = nullptr;
 		temp = start;
 		return true;
 		count--;
