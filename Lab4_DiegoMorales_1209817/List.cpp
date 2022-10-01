@@ -84,10 +84,17 @@ void List::SetItem(int index, int item) {//Si el elemento está en 7, moverlo a 4
 	Node^ temp = gcnew Node();
 	Node^ pretemp = gcnew Node();
 	Node^ actual = gcnew Node();//apuntador del elemento a mover
-	if (actual != nullptr) {
+	actual->data = item;
+	if (actual == nullptr) {
 		pretemp->next = actual;
 		actual->next = temp;
 		count++;
+	}
+	else {
+		actual = pretemp;
+		actual->next = pretemp;
+		pretemp->next = temp;
+		
 	}
 }
 
