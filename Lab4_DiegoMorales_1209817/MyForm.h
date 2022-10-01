@@ -79,6 +79,7 @@ namespace Lab4DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		MessageBox::Show("Bienvenido a Solitario URL");
 	}
 	};
 }
