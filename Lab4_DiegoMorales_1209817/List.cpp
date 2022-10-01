@@ -34,8 +34,8 @@ bool List::Contains(int item) {
 	Node^ buscar = gcnew Node();
 	buscar->data = item;
 	/*Obtenido de: https://www.youtube.com/watch?v=W86jnUUY2zA */
-	while (buscar != nullptr && buscar->data <= count) {
-		if (buscar->data == count) {
+	while (buscar != nullptr && buscar->data <= item) {
+		if (buscar->data == item) {
 			return true;
 		}
 		buscar = buscar->next;
