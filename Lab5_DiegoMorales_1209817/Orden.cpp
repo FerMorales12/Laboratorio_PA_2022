@@ -8,6 +8,10 @@ void Orden::Lectura() {
 	{
 		String^ textFile = String::Concat(("\\Pokedex.csv"));
 		StreamReader^ reader = gcnew  StreamReader(textFile);
+		do
+		{
+			Console::WriteLine(reader->ReadLine());
+		} while (reader->Peek() != -1);
 	}	
 	catch (System::Exception ^e)
 	{
