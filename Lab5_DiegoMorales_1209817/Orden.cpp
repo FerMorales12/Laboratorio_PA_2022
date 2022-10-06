@@ -6,8 +6,8 @@ using namespace System::IO;
 void Orden::Lectura() {
 	try
 	{
-		String* textFile = String::Concat(S"\\Pokedex.csv");
-		StreamReader* reader = new  StreamReader(textFile);
+		String^ textFile = String::Concat(("\\Pokedex.csv"));
+		StreamReader^ reader = gcnew  StreamReader(textFile);
 	}	
 	catch (System::Exception ^e)
 	{
