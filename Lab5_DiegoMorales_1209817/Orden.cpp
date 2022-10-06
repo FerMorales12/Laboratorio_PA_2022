@@ -27,7 +27,33 @@ void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
 
 	if (inf >= sup)
 		return;
+	int elem_div = arrNumeros[sup];
+
+	while (bandera)
+	{
+		while (arrNumeros[++i] < elem_div);
+		while ((arrNumeros[--j] > elem_div) && (j > inf));
+
+		if (i < j)
+		{
+			temp = arrNumeros[i];
+			arrNumeros[i] = arrNumeros[j];
+			arrNumeros[j] = temp;
+		}
+		else
+		{
+			bandera = false;
+		}
+	}
+
+	temp = arrNumeros[i];
+	arrNumeros[i] = arrNumeros[sup];
+	arrNumeros[sup] = temp;
+	QuickSort(arrNumeros, inf, i - 1);
+	QuickSort(arrNumeros, i + 1, sup);
+	Console::WriteLine("Arreglo ordenado exitosamente");
 }
+
 
 void Orden::SelectSort() {
 
