@@ -19,8 +19,14 @@ void Orden::Lectura() {
 	}
 }
 
-void Orden::QuickSort() {
+void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
+	int i = inf - 1;
+	int j = sup;
+	bool bandera = true;
+	int temp = 0;
 
+	if (inf >= sup)
+		return;
 }
 
 void Orden::SelectSort() {
