@@ -11,21 +11,35 @@ int main(array<System::String ^> ^args)
     Console::WriteLine("Seleccione una opción: ");
     
     
-        Console::WriteLine("1. Método Quick Sort ");
-        Console::WriteLine("2. Método Shell Sort ");
-        Console::WriteLine("3. Método Selection Sort ");
-    opcion = int::Parse(Console::ReadLine());
-        switch (opcion)
+   
+        
+        do
         {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        default: Console::WriteLine("Adios");
-            break;
-        }
+            Console::WriteLine("1. Método Quick Sort ");
+            Console::WriteLine("2. Método Shell Sort ");
+            Console::WriteLine("3. Método Selection Sort ");
+            Console::WriteLine("0. Salir");
+
+            opcion = int::Parse(Console::ReadLine());
+            switch (opcion)
+            {
+            case 1:
+                Console::WriteLine("Vamos a ordenar con el método shell");
+                break;
+            case 2:
+                ordenar->ShellSort();
+                break;
+            case 3:
+                ordenar->SelectSort();
+                break;
+            case 0:
+                Console::WriteLine("Adiós");
+                break;
+            default: Console::WriteLine("Elija una opción válida");
+                break;
+            }
+        } while (opcion!=0);
+        
             
     
     return 0;
