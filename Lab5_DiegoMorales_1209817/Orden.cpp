@@ -15,7 +15,7 @@ void Orden::Lectura() {
 	}	
 	catch (System::Exception ^e)
 	{
-
+		Console::WriteLine("Archivo inválido");
 	}
 }
 
