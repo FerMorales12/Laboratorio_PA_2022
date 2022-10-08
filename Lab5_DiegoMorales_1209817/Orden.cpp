@@ -66,3 +66,12 @@ void Orden::SelectSort() {
 void Orden::ShellSort() {
 	Console::WriteLine("Archivo ordenado exitosamente");
 }
+
+void Orden::GuardarArchivo() {
+	String^ textfile = String::Concat(("PokedexOrdenada.csv"));
+	StreamWriter^ escritor = gcnew StreamWriter(textfile);
+	escritor->Close();
+	
+	Console::WriteLine("Archivo Guardado");
+
+}
