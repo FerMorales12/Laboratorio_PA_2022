@@ -5,7 +5,7 @@ using namespace System;
 int main(array<System::String ^> ^args)
 {
     Orden^ Leer = gcnew Orden();
-    Leer->Lectura();
+   
     Orden^ ordenar = gcnew Orden();
     int opcion = 0;
     Console::WriteLine("Seleccione una opción: ");
@@ -25,6 +25,7 @@ int main(array<System::String ^> ^args)
             {
             case 1:
                 Console::WriteLine("Vamos a ordenar con el método shell");
+                Leer->Lectura();
                 break;
             case 2:
                 ordenar->ShellSort();

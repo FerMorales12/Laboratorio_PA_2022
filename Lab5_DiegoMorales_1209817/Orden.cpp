@@ -9,8 +9,8 @@ using namespace System::IO;
 
 void Orden::Lectura() { //Lee el archivo csv
 	try
-	{
-		String^ textFile = String::Concat(("\\Pokedex.csv"));
+	{	
+		String^ textFile = String::Concat(("Pokedex.csv"));
 		StreamReader^ reader = gcnew  StreamReader(textFile);
 		do
 		{
