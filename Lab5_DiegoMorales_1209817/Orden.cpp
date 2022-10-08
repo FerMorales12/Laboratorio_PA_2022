@@ -1,9 +1,13 @@
 #include "pch.h"
 #include "Orden.h"
+#include <fstream>
+#include <string>
+
 
 using namespace System;
 using namespace System::IO;
-void Orden::Lectura() {
+
+void Orden::Lectura() { //Lee el archivo csv
 	try
 	{
 		String^ textFile = String::Concat(("\\Pokedex.csv"));
