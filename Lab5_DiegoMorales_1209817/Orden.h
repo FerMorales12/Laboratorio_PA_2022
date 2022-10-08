@@ -6,5 +6,6 @@ public:
 	void ShellSort();
 	void SelectSort();
 	void Lectura();
+	void GuardarArchivo();
 };
 

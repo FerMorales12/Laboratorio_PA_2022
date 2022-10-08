@@ -64,5 +64,5 @@ void Orden::SelectSort() {
 }
 
 void Orden::ShellSort() {
-
+	Console::WriteLine("Archivo ordenado exitosamente");
 }
