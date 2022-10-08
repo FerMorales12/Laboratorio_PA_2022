@@ -2,11 +2,14 @@
 #include "Orden.h"
 #include <fstream>
 #include <string>
-
+#include <vector>
+#include <stdlib.h>
+#include <fstream>
+#include <sstream>
 
 using namespace System;
 using namespace System::IO;
-
+using namespace std;
 void Orden::Lectura() { //Lee el archivo csv
 	try
 	{	
@@ -74,4 +77,19 @@ void Orden::GuardarArchivo() {
 	
 	Console::WriteLine("Archivo Guardado");
 
+}
+
+void Orden::LecturaC() {
+	ifstream infile("Pokedex.csv");
+	string line = "";
+	vector<string>datos_csv;
+	string palabra, palabrafinal;
+	while (getline(infile, line)) {
+		stringstream strstr(line);
+		string word = "";
+		while (getline(strstr, word, ','))
+		{
+			datos_csv.push_back(word);
+		}
+	}
 }

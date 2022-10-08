@@ -7,5 +7,6 @@ public:
 	void SelectSort();
 	void Lectura();
 	void GuardarArchivo();
+	void LecturaC();
 };
 
