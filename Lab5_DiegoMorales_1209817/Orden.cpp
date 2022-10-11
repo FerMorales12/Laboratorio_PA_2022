@@ -58,12 +58,28 @@ void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
 	arrNumeros[sup] = temp;
 	QuickSort(arrNumeros, inf, i - 1);
 	QuickSort(arrNumeros, i + 1, sup);
-	Console::WriteLine("Arreglo ordenado exitosamente");
+	
 }
 
 
-void Orden::SelectSort() {
+void Orden::SelectSort(int arreglo[]) {
+	int i = 0;
+	int j = 0;
+	int arreglo[8];
+	int largo = sizeof(arreglo);
+	
+	int menor;
+	for (i = 0; i < largo-1; i++)
+	{
+		menor = i;
+		for ( j = i+1; j < largo; j++)
+		{
+			if (arreglo[j] < arreglo[menor]) {
+				menor = j;
 
+			}
+		}
+	}
 }
 
 void Orden::ShellSort() {
@@ -82,14 +98,21 @@ void Orden::GuardarArchivo() {
 void Orden::LecturaC() {
 	ifstream infile("Pokedex.csv");
 	string line = "";
-	vector<string>datos_csv;
-	string palabra, palabrafinal;
+	vector<string>Pokedex_csv;
+	
 	while (getline(infile, line)) {
 		stringstream strstr(line);
 		string word = "";
 		while (getline(strstr, word, ','))
 		{
-			datos_csv.push_back(word);
+			Pokedex_csv.push_back(word);
 		}
 	}
+	
+}
+
+void Orden::cambio(int* x, int* y) {
+	int temp = *x;
+	*x = *y;
+	*y = temp;
 }
