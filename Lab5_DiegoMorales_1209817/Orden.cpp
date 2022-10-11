@@ -65,9 +65,8 @@ void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
 void Orden::SelectSort(int arreglo[]) {
 	int i = 0;
 	int j = 0;
-	int arreglo[8];
+	//int arreglo[8];
 	int largo = sizeof(arreglo);
-	
 	int menor;
 	for (i = 0; i < largo-1; i++)
 	{
@@ -76,7 +75,7 @@ void Orden::SelectSort(int arreglo[]) {
 		{
 			if (arreglo[j] < arreglo[menor]) {
 				menor = j;
-
+				cambio(&arreglo[menor], &arreglo[j]);
 			}
 		}
 	}

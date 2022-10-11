@@ -10,7 +10,7 @@ int main(array<System::String ^> ^args)
     int opcion = 0;
     Console::WriteLine("Seleccione una opción: ");
     
-    
+    int vector[8] = { 2,5,0,8,-1,6,0,10 };
    
         
         do
@@ -37,7 +37,8 @@ int main(array<System::String ^> ^args)
                 Console::WriteLine("\b");
                 break;
             case 3:
-                ordenar->SelectSort();
+                
+                ordenar->SelectSort(vector);
                 Console::WriteLine("Vamos a ordenar con el método selección");
                 Leer->Lectura();
                 Console::WriteLine("\b");
