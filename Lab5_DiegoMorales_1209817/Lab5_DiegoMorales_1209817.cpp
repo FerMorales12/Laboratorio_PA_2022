@@ -11,7 +11,7 @@ int main(array<System::String ^> ^args)
     Console::WriteLine("Seleccione una opción: ");
     
     int vector[8] = { 2,5,0,8,-1,6,0,10 };
-   
+    
         
         do
         {
@@ -44,10 +44,15 @@ int main(array<System::String ^> ^args)
                 Console::WriteLine("\b");
                 break;
             case 0:
-                Console::WriteLine("Adiós");
+                Console::WriteLine("Adios");
+                
                 break;
             case 4:
                 Console::Clear();
+                break;
+            case 5:
+                Leer->Lectura();
+                Leer->GuardarArchivoC();
                 break;
             default: Console::WriteLine("Elija una opción válida");
                 break;

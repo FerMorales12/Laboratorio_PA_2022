@@ -9,5 +9,6 @@ public:
 	void GuardarArchivo(int arreglo[]);
 	void LecturaC();
 	void cambio(int*, int*);
+	void GuardarArchivoC();
 };
 

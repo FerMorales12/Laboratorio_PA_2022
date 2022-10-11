@@ -24,6 +24,7 @@ void Orden::Lectura() { //Lee el archivo csv
 	{
 		Console::WriteLine("Archivo inválido");
 	}
+	
 }
 
 void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
@@ -85,20 +86,20 @@ void Orden::ShellSort(int arreglo[]) {
 	/*Código obtenido de: https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/sorting/shell_sort.cpp */
 	int i, j, k;
 	int largo = sizeof(arreglo);
-	for (i = largo/2; i < largo-1; i/2)
+	for (i = largo/2; i < largo-1; i++)
 	{
 		for (j =i+1; j < largo; j++)
 		{
 			for (k = 0; k < largo; k-=i)
 			{
-				if (arreglo[j] < arreglo[k])
+				if (&arreglo[j] < &arreglo[k])
 					j = -1;
 				else
 					cambio(&arreglo[j], &arreglo[k]);
 			}
 		}
 	}
-	GuardarArchivo(arreglo);
+	
 }
 
 void Orden::GuardarArchivo(int arreglo[]) {
@@ -130,4 +131,13 @@ void Orden::cambio(int* x, int* y) {
 	int temp = *x;
 	*x = *y;
 	*y = temp;
+}
+
+void Orden::GuardarArchivoC() {
+	ofstream PokedexOrdenada;
+	PokedexOrdenada.open("Pokedex.csv", ios::out);
+	if (PokedexOrdenada.fail())
+		Console::WriteLine("No se pudo guardar el archivo :( ");
+	PokedexOrdenada.close();
+	Lectura();
 }
