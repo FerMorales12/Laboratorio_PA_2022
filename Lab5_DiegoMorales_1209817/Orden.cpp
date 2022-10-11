@@ -81,8 +81,21 @@ void Orden::SelectSort(int arreglo[]) {
 	}
 }
 
-void Orden::ShellSort() {
-	Console::WriteLine("Archivo ordenado exitosamente");
+void Orden::ShellSort(int arreglo[]) {
+	int i, j, k;
+	int intervalo = sizeof(arreglo) / 2;
+	while (intervalo>0)
+	{
+		for (i = intervalo; i <= sizeof(arreglo); i++)
+			j = i - intervalo;
+			while (j >= 0) {
+				k = j + intervalo;
+				if (arreglo[j] <= arreglo[k])
+					j = -1;
+				else
+					cambio(&arreglo[j], &arreglo[k]);
+			}
+	}
 }
 
 void Orden::GuardarArchivo() {
