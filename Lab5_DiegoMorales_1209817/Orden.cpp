@@ -82,23 +82,26 @@ void Orden::SelectSort(int arreglo[]) {
 }
 
 void Orden::ShellSort(int arreglo[]) {
+	/*Código obtenido de: https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/sorting/shell_sort.cpp */
 	int i, j, k;
-	int intervalo = sizeof(arreglo) / 2;
-	while (intervalo>0)
+	int largo = sizeof(arreglo);
+	for (i = largo/2; i < largo-1; i/2)
 	{
-		for (i = intervalo; i <= sizeof(arreglo); i++)
-			j = i - intervalo;
-			while (j >= 0) {
-				k = j + intervalo;
-				if (arreglo[j] <= arreglo[k])
+		for (j =i+1; j < largo; j++)
+		{
+			for (k = 0; k < largo; k-=i)
+			{
+				if (arreglo[j] < arreglo[k])
 					j = -1;
 				else
 					cambio(&arreglo[j], &arreglo[k]);
 			}
+		}
 	}
+	GuardarArchivo(arreglo);
 }
 
-void Orden::GuardarArchivo() {
+void Orden::GuardarArchivo(int arreglo[]) {
 	String^ textfile = String::Concat(("PokedexOrdenada.csv"));
 	StreamWriter^ escritor = gcnew StreamWriter(textfile);
 	escritor->Close();
@@ -107,7 +110,7 @@ void Orden::GuardarArchivo() {
 
 }
 
-void Orden::LecturaC() {
+void Orden::LecturaC() {//Lectura por C++ estándar. No sé si me sirva de mucho pero algo tenía que probar
 	ifstream infile("Pokedex.csv");
 	string line = "";
 	vector<string>Pokedex_csv;

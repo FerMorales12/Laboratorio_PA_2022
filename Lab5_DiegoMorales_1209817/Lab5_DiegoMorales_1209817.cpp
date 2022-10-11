@@ -31,7 +31,7 @@ int main(array<System::String ^> ^args)
                 Console::WriteLine("\b");
                 break;
             case 2:
-                ordenar->ShellSort();
+                ordenar->ShellSort(vector);
                 Console::WriteLine("Vamos a ordenar con el método Shell");
                 Leer->Lectura();
                 Console::WriteLine("\b");

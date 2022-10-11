@@ -6,7 +6,7 @@ public:
 	void ShellSort(int arreglo[]);
 	void SelectSort(int arreglo[]);
 	void Lectura();
-	void GuardarArchivo();
+	void GuardarArchivo(int arreglo[]);
 	void LecturaC();
 	void cambio(int*, int*);
 };
