@@ -8,7 +8,8 @@ namespace Lab05DiegoMorales1209817 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-
+	using namespace System::IO;
+	
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
@@ -34,6 +35,9 @@ namespace Lab05DiegoMorales1209817 {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ btnAbrirArchivo;
+	protected:
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 
 	private:
 		/// <summary>
@@ -48,12 +52,34 @@ namespace Lab05DiegoMorales1209817 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"MyForm";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->btnAbrirArchivo = (gcnew System::Windows::Forms::Button());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
+			this->SuspendLayout();
+			// 
+			// btnAbrirArchivo
+			// 
+			this->btnAbrirArchivo->Location = System::Drawing::Point(101, 230);
+			this->btnAbrirArchivo->Name = L"btnAbrirArchivo";
+			this->btnAbrirArchivo->Size = System::Drawing::Size(111, 34);
+			this->btnAbrirArchivo->TabIndex = 0;
+			this->btnAbrirArchivo->Text = L"Abrir archivo";
+			this->btnAbrirArchivo->UseVisualStyleBackColor = true;
+			this->btnAbrirArchivo->Click += gcnew System::EventHandler(this, &MyForm::btnAbrirArchivo_Click);
+			// 
+			// MyForm
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(313, 302);
+			this->Controls->Add(this->btnAbrirArchivo);
+			this->Name = L"MyForm";
+			this->Text = L"MyForm";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
+	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+	}
 	};
 }
