@@ -12,21 +12,30 @@ using namespace System::IO;
 using namespace std;
 void Orden::Lectura() { //Lee el archivo csv
 	try
-	{	
+	{
+		int NumNacional[8];
+		int Generacion[8];
 		String^ textFile = String::Concat(("Pokedex.csv"));
 		StreamReader^ reader = gcnew  StreamReader(textFile);
 		do
 		{
 			Console::WriteLine(reader->ReadLine());
-			textFile->Split(';');
-			Console::WriteLine(textFile);
+			
 		} while (reader->Peek() != -1);
+		for (int i = 0; i < 8; i++)
+		{
+			if (reader->ReadLine() == ";") {
+				textFile->Split(';');
+				
+			}
+			
+		}
 	}	
 	catch (System::Exception ^e)
 	{
 		Console::WriteLine("Archivo inválido");
 	}
-	GuardarArchivoC();
+	
 }
 
 void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
@@ -125,7 +134,9 @@ void Orden::LecturaC() {//Lectura por C++ estándar. No sé si me sirva de mucho p
 		{
 			Pokedex_csv.push_back(word);
 		}
+		
 	}
+	
 	
 }
 

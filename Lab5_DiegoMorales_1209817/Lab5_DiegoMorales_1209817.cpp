@@ -50,10 +50,6 @@ int main(array<System::String ^> ^args)
             case 4:
                 Console::Clear();
                 break;
-            case 5:
-                Leer->Lectura();
-                Leer->GuardarArchivoC();
-                break;
             default: Console::WriteLine("Elija una opción válida");
                 break;
             }
