@@ -18,13 +18,15 @@ void Orden::Lectura() { //Lee el archivo csv
 		do
 		{
 			Console::WriteLine(reader->ReadLine());
+			textFile->Split(';');
+			Console::WriteLine(textFile);
 		} while (reader->Peek() != -1);
 	}	
 	catch (System::Exception ^e)
 	{
 		Console::WriteLine("Archivo inválido");
 	}
-	
+	GuardarArchivoC();
 }
 
 void Orden::QuickSort(int arrNumeros[], int inf, int sup) {
@@ -99,7 +101,7 @@ void Orden::ShellSort(int arreglo[]) {
 			}
 		}
 	}
-	
+	GuardarArchivo(arreglo);
 }
 
 void Orden::GuardarArchivo(int arreglo[]) {
