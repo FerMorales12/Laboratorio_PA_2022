@@ -91,13 +91,29 @@ namespace Lab05DiegoMorales1209817 {
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		StreamReader^ InputStream = gcnew StreamReader(openFileDialog1->FileName);
-
+		array<DatosPokemon^>^ misPokemon;
+		MessageBox::Show("Archivo abierto exitosamente");
 		if (InputStream != nullptr) {
-			
+			misPokemon = gcnew array<DatosPokemon^>(80);
+			int PokemonIdx = 0;
 			while (String^ lineofText = InputStream->ReadLine())
 			{
 				char separador = ';';
 				array<String^>^ palabras = lineofText->Split(separador);
+				
+				
+					DatosPokemon^ miPokemon = gcnew DatosPokemon();
+					miPokemon->NumeroGeneracion = Convert::ToInt32(palabras[2]);
+					miPokemon->NumeroNacional = Convert::ToInt32(palabras[0]);
+					miPokemon->NombrePokemon = palabras[1];
+					misPokemon[PokemonIdx] = miPokemon;
+					PokemonIdx++;
+				
+			}
+			InputStream->Close();
+			for (int i = 0; i < misPokemon->Length; i++)
+			{
+
 			}
 		}
 			
