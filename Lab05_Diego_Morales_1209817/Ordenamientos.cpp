@@ -8,7 +8,7 @@ void Ordenamientos::Intercambio(int* x, int* y) {
 	*y = temp;
 }
 
-void Quicksort(int arrNumeros[], int inf, int sup)
+void Ordenamientos::QuickSort(int arrNumeros[], int inf, int sup)
 {
 	int i = inf - 1;
 	int j = sup;
@@ -40,7 +40,24 @@ void Quicksort(int arrNumeros[], int inf, int sup)
 	temp = arrNumeros[i];
 	arrNumeros[i] = arrNumeros[sup];
 	arrNumeros[sup] = temp;
-	Quicksort(arrNumeros, inf, i - 1);
-	Quicksort(arrNumeros, i + 1, sup);
+	QuickSort(arrNumeros, inf, i - 1);
+	QuickSort(arrNumeros, i + 1, sup);
 
 }//Fin de método Quicksort
+
+void Ordenamientos::SelectSort(int vector[]) {
+	int i, j, minimo;
+	for ( i = 0; i < 79; i++)
+	{
+		minimo = i;
+		for (j = i+1; j < 80; j++)
+		{
+			if (vector[j] < vector[minimo])
+			{
+				minimo = j;
+
+			}
+			Intercambio(&vector[j], &vector[minimo]);
+		}
+	}
+}
