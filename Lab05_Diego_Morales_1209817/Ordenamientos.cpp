@@ -61,3 +61,27 @@ void Ordenamientos::SelectSort(int vector[]) {
 		}
 	}
 }
+
+void Ordenamientos::ShellSort(int vector[]) {
+	int i, j,aux;
+	int largo = sizeof(vector);
+	int intervalo = largo / 2;
+	while (intervalo>0)
+	{
+		for (i = intervalo + 1; i < largo; i++)
+		{
+			j = i - intervalo;
+			while (j>0)
+			{
+				aux = j + intervalo;
+				if (vector[j] > vector[aux])
+					Intercambio(&vector[j], &vector[aux]);
+				else
+					j = -1;
+				j -= intervalo;
+
+			}
+		}
+		intervalo /= 2;
+	}
+}
