@@ -71,7 +71,7 @@ namespace Lab05DiegoMorales1209817 {
 			// 
 			// openFileDialog1
 			// 
-			this->openFileDialog1->FileName = L"Pokedexx";
+			this->openFileDialog1->FileName = L"Pokedex.csv";
 			// 
 			// MyForm
 			// 
