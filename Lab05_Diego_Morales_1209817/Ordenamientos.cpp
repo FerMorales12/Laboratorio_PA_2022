@@ -1,5 +1,5 @@
 #include "Ordenamientos.h"
-
+#include "DatosPokemon.h"
 using namespace System;
 
 void Ordenamientos::Intercambio(int* x, int* y) {
@@ -87,8 +87,9 @@ void Ordenamientos::ShellSort(int vector[]) {
 	}
 }
 
-void Ordenamientos::RecibirVector(DatosPokemon^) {
+void Ordenamientos::RecibirNumNacional(DatosPokemon^) {
 	DatosPokemon^ nuevoPokemon = gcnew DatosPokemon();
+	
 	int vector[80];
 	for (int i = 0; i < 80; i++)
 	{

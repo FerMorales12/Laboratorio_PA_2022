@@ -182,7 +182,7 @@ namespace Lab05DiegoMorales1209817 {
 				listBox2->Items->Add(palabras[1]);
 				listBox3->Items->Add(palabras[2]);
 				PokemonIdx++;
-				orden->RecibirVector(miPokemon->NumeroNacional);
+				orden->RecibirNumNacional(miPokemon->NumeroGeneracion);
 			}
 			InputStream->Close();
 			//Ciclos for fallidos.
