@@ -79,7 +79,9 @@ namespace Lab05DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
-		
+		Stream^ MyStream;
+		OpenFileDialog^ openFileDialog1=gcnew OpenFileDialog;
+				
 	}
 	};
 }

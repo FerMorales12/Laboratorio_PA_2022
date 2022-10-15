@@ -123,12 +123,14 @@
   <ItemGroup>
     <ClCompile Include="DatosPokemon.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="Ordenamientos.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DatosPokemon.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Ordenamientos.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
