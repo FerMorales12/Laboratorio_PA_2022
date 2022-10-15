@@ -1,4 +1,6 @@
 #pragma once
+#include "DatosPokemon.h"
+#include "Ordenamientos.h"
 
 namespace Lab05DiegoMorales1209817 {
 
