@@ -73,7 +73,7 @@ namespace Lab05DiegoMorales1209817 {
 			// 
 			// btnAbrirArchivo
 			// 
-			this->btnAbrirArchivo->Location = System::Drawing::Point(99, 256);
+			this->btnAbrirArchivo->Location = System::Drawing::Point(162, 255);
 			this->btnAbrirArchivo->Name = L"btnAbrirArchivo";
 			this->btnAbrirArchivo->Size = System::Drawing::Size(111, 34);
 			this->btnAbrirArchivo->TabIndex = 0;
@@ -88,7 +88,7 @@ namespace Lab05DiegoMorales1209817 {
 			// listBox1
 			// 
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(12, 70);
+			this->listBox1->Location = System::Drawing::Point(42, 70);
 			this->listBox1->Name = L"listBox1";
 			this->listBox1->Size = System::Drawing::Size(87, 160);
 			this->listBox1->TabIndex = 1;
@@ -96,7 +96,7 @@ namespace Lab05DiegoMorales1209817 {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 44);
+			this->label1->Location = System::Drawing::Point(39, 44);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(89, 13);
 			this->label1->TabIndex = 2;
@@ -105,15 +105,15 @@ namespace Lab05DiegoMorales1209817 {
 			// listBox2
 			// 
 			this->listBox2->FormattingEnabled = true;
-			this->listBox2->Location = System::Drawing::Point(114, 70);
+			this->listBox2->Location = System::Drawing::Point(176, 70);
 			this->listBox2->Name = L"listBox2";
-			this->listBox2->Size = System::Drawing::Size(87, 160);
+			this->listBox2->Size = System::Drawing::Size(89, 160);
 			this->listBox2->TabIndex = 3;
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(109, 44);
+			this->label2->Location = System::Drawing::Point(173, 44);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(92, 13);
 			this->label2->TabIndex = 4;
@@ -122,7 +122,7 @@ namespace Lab05DiegoMorales1209817 {
 			// listBox3
 			// 
 			this->listBox3->FormattingEnabled = true;
-			this->listBox3->Location = System::Drawing::Point(216, 70);
+			this->listBox3->Location = System::Drawing::Point(309, 70);
 			this->listBox3->Name = L"listBox3";
 			this->listBox3->Size = System::Drawing::Size(87, 160);
 			this->listBox3->TabIndex = 5;
@@ -130,7 +130,7 @@ namespace Lab05DiegoMorales1209817 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(229, 46);
+			this->label3->Location = System::Drawing::Point(320, 44);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 13);
 			this->label3->TabIndex = 6;
@@ -141,7 +141,7 @@ namespace Lab05DiegoMorales1209817 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->ClientSize = System::Drawing::Size(313, 302);
+			this->ClientSize = System::Drawing::Size(434, 301);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->listBox3);
 			this->Controls->Add(this->label2);
@@ -159,7 +159,7 @@ namespace Lab05DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		Ordenamientos^ Orden = gcnew Ordenamientos();
 		StreamReader^ InputStream = gcnew StreamReader(openFileDialog1->FileName);
 		array<DatosPokemon^>^ misPokemon;
 		MessageBox::Show("Archivo abierto exitosamente");
@@ -181,9 +181,11 @@ namespace Lab05DiegoMorales1209817 {
 				
 			}
 			InputStream->Close();
+			MessageBox::Show("Hay " + misPokemon->Length + " pokemon en total");
 			for (int i = 0; i < misPokemon->Length; i++)//Número Nacional
 			{
 				listBox1->Items->Add(misPokemon[i]->NumeroNacional);
+				
 			}
 			for (int i = 0; i < misPokemon->Length; i++)
 			{
