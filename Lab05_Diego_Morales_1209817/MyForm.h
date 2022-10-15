@@ -159,9 +159,10 @@ namespace Lab05DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
-		Ordenamientos^ Orden = gcnew Ordenamientos();
+	
 		StreamReader^ InputStream = gcnew StreamReader(openFileDialog1->FileName);
 		array<DatosPokemon^>^ misPokemon;
+		DatosPokemon^ miPokemon = gcnew DatosPokemon();
 		MessageBox::Show("Archivo abierto exitosamente");
 		if (InputStream != nullptr) {
 			misPokemon = gcnew array<DatosPokemon^>(80);
@@ -172,20 +173,21 @@ namespace Lab05DiegoMorales1209817 {
 				array<String^>^ palabras = lineofText->Split(separador);
 				
 				
-					DatosPokemon^ miPokemon = gcnew DatosPokemon();
-					miPokemon->NumeroGeneracion = Convert::ToInt32(palabras[2]);
-					miPokemon->NumeroNacional = Convert::ToInt32(palabras[0]);
-					miPokemon->NombrePokemon = palabras[1];
-					misPokemon[PokemonIdx] = miPokemon;
-					PokemonIdx++;
+				miPokemon->NumeroNacional = Convert::ToInt32(palabras[0]);
+				miPokemon->NombrePokemon = palabras[1];
+				miPokemon->NumeroGeneracion = Convert::ToInt32(palabras[2]);
+				
+				misPokemon[PokemonIdx] = miPokemon;
+				listBox1->Items->Add(palabras[0]);
+				listBox2->Items->Add(palabras[1]);
+				listBox3->Items->Add(palabras[2]);
+				PokemonIdx++;
 				
 			}
 			InputStream->Close();
-			MessageBox::Show("Hay " + misPokemon->Length + " pokemon en total");
-			for (int i = 0; i < misPokemon->Length; i++)//Número Nacional
+			/*/for (int i = 0; i < misPokemon->Length; i++)
 			{
 				listBox1->Items->Add(misPokemon[i]->NumeroNacional);
-				
 			}
 			for (int i = 0; i < misPokemon->Length; i++)
 			{
@@ -194,9 +196,9 @@ namespace Lab05DiegoMorales1209817 {
 			for (int i = 0; i < misPokemon->Length; i++)
 			{
 				listBox3->Items->Add(misPokemon[i]->NumeroGeneracion);
-			}
+			}*/
 		}
-			
+		
 
 
 

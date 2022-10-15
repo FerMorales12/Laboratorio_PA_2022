@@ -45,8 +45,9 @@ void Ordenamientos::QuickSort(int arrNumeros[], int inf, int sup)
 
 }//Fin de método Quicksort
 
-void Ordenamientos::SelectSort(int vector[]) {
+void Ordenamientos::SelectSort(DatosPokemon^,int) {
 	int i, j, minimo;
+	int vector[80];
 	for ( i = 0; i < 79; i++)
 	{
 		minimo = i;
