@@ -159,7 +159,7 @@ namespace Lab05DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+		Ordenamientos^ orden = gcnew Ordenamientos();
 		StreamReader^ InputStream = gcnew StreamReader(openFileDialog1->FileName);
 		array<DatosPokemon^>^ misPokemon;
 		DatosPokemon^ miPokemon = gcnew DatosPokemon();
@@ -182,10 +182,11 @@ namespace Lab05DiegoMorales1209817 {
 				listBox2->Items->Add(palabras[1]);
 				listBox3->Items->Add(palabras[2]);
 				PokemonIdx++;
-				
+				orden->RecibirVector(miPokemon->NumeroNacional);
 			}
 			InputStream->Close();
-			/*/for (int i = 0; i < misPokemon->Length; i++)
+			//Ciclos for fallidos.
+			/*for (int i = 0; i < misPokemon->Length; i++)
 			{
 				listBox1->Items->Add(misPokemon[i]->NumeroNacional);
 			}

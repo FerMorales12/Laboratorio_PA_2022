@@ -86,3 +86,12 @@ void Ordenamientos::ShellSort(int vector[]) {
 		intervalo /= 2;
 	}
 }
+
+void Ordenamientos::RecibirVector(DatosPokemon^) {
+	DatosPokemon^ nuevoPokemon = gcnew DatosPokemon();
+	int vector[80];
+	for (int i = 0; i < 80; i++)
+	{
+		vector[i] = nuevoPokemon->NumeroNacional;
+	}
+}
