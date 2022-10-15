@@ -11,7 +11,7 @@ namespace Lab05DiegoMorales1209817 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace System::IO;
-	
+
 	/// <summary>
 	/// Resumen de MyForm
 	/// </summary>
@@ -45,7 +45,7 @@ namespace Lab05DiegoMorales1209817 {
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -54,6 +54,7 @@ namespace Lab05DiegoMorales1209817 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->btnAbrirArchivo = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->SuspendLayout();
@@ -68,22 +69,43 @@ namespace Lab05DiegoMorales1209817 {
 			this->btnAbrirArchivo->UseVisualStyleBackColor = true;
 			this->btnAbrirArchivo->Click += gcnew System::EventHandler(this, &MyForm::btnAbrirArchivo_Click);
 			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"Pokedexx";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(313, 302);
 			this->Controls->Add(this->btnAbrirArchivo);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"Pokedex";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void btnAbrirArchivo_Click(System::Object^ sender, System::EventArgs^ e) {
-		Stream^ MyStream;
-		OpenFileDialog^ openFileDialog1=gcnew OpenFileDialog;
-				
+
+		StreamReader^ InputStream = gcnew StreamReader(openFileDialog1->FileName);
+
+		if (InputStream != nullptr) {
+			
+			while (String^ lineofText = InputStream->ReadLine())
+			{
+				char separador = ';';
+				array<String^>^ palabras = lineofText->Split(separador);
+			}
+		}
+			
+
+
+
 	}
 	};
+
+
 }
