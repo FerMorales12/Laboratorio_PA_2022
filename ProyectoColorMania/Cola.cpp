@@ -20,12 +20,31 @@ void Cola::Agregar(Node^ nodo) {
 	contador++;
 }
 
-void Sacar() {
-	
+Node^ Cola::Sacar() {
+	Node^ temp = Tail;
+	if (isEmpty())
+		return Tail;
+	if (largo == 1) {
+		Tail = Tail->Next;
+		Head = Tail;
+	}
+	else {
+		Node^ pretemp = Head;
+		temp = pretemp->Next;
+		while (temp!=Tail)
+		{
+			pretemp = temp;
+			temp = pretemp->Next;
+		}
+		pretemp->Next = temp->Next;
+		Tail = pretemp;
+		largo--;
+	}
+	return temp;
 }
-void Clear() {
-
+int Cola::Clear() {
+	return -1;
 }
-int getLength() {
-	int largo;
+int Cola::getLength() {
+	return largo;
 }

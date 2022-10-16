@@ -5,14 +5,14 @@ ref class Cola
 {
 	Node^ Head;
 	Node^ Tail;
-	
+	int largo;
 public:
 	void Agregar(Node^ nodo);
-	void Sacar();
-	void Clear();
+	Node^ Sacar();
+	int Clear();
 	int getLength();
 	bool isEmpty();
 	int contador;
-	int largo;
+	
 };
 
