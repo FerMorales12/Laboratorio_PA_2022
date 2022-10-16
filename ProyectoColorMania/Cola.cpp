@@ -21,11 +21,11 @@ void Cola::Agregar(Node^ nodo) {
 }
 
 void Sacar() {
-
+	
 }
 void Clear() {
 
 }
 int getLength() {
-
+	int largo;
 }

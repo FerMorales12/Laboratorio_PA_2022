@@ -21,7 +21,11 @@
     <ClCompile Include="Node.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Cola.cpp">
+=======
+    <ClCompile Include="Pila.cpp">
+>>>>>>> f27ceb4568eca4406f5f25c7436b067af80ad317
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,7 +36,11 @@
     <ClInclude Include="Node.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Cola.h">
+=======
+    <ClInclude Include="Pila.h">
+>>>>>>> f27ceb4568eca4406f5f25c7436b067af80ad317
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
