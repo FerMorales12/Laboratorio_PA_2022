@@ -12,3 +12,15 @@ void Pila::Push(System::String^ color) {
 		header = nuevo;
 	}
 }
+
+System::String^ Pila::Pop() {
+	Node^ iterador = new Node;
+	if (header == nullptr) {
+		return "";
+	}
+	else {
+		iterador = header;
+		header = header->Next;
+		return iterador->Color;
+	}
+}
