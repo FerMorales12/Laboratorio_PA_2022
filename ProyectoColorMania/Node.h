@@ -3,6 +3,6 @@ ref class Node
 {
 public:
 	Node^ Next;
-	Node^ Back;
+	System::String^ Color;
 };
 
