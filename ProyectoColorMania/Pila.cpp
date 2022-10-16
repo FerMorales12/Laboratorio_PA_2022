@@ -38,3 +38,19 @@ int Pila::IndexOf(System::String^ color) {
 	}
 	return indice;
 }
+
+int Pila::Count() {
+	if (header == nullptr) {
+		return 0;
+	}
+	else {
+		Node^ iterador = gcnew Node;
+		iterador = header;
+		int contador = 1;
+		while (iterador->Next != nullptr) {
+			iterador = iterador->Next;
+			contador++;
+		}
+		return contador;
+	}
+}
