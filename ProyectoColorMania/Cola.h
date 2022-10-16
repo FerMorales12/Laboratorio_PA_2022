@@ -7,10 +7,11 @@ ref class Cola
 	Node^ Tail;
 	int Length;
 public:
-	void Agregar();
+	void Agregar(Node^ nodo);
 	void Sacar();
 	void Clear();
 	int getLength();
 	bool isEmpty();
+	int contador;
 };
 
