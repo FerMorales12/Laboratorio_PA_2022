@@ -13,6 +13,6 @@ public:
 	int getLength();
 	bool isEmpty();
 	int contador;
-	
+	void Print();
 };
 

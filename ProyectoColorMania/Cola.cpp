@@ -51,3 +51,11 @@ void Cola::Clear() {
 int Cola::getLength() {
 	return largo;
 }
+
+void Cola::Print() {
+	Node^ actual = Head;
+	while (actual!=nullptr)
+	{
+		actual = actual->Next;
+	}
+}
