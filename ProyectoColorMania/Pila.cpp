@@ -64,5 +64,5 @@ System::String^ Pila::GetItem(int index) {
 	for (int i = 0; i < index; i++) {
 		iterador = iterador->Next;
 	}
-	return iterador;
+	return iterador->Color;
 }

@@ -3,7 +3,7 @@
 ref class Pila
 {
 private:
-	Node* header = nullptr;
+	Node^ header = nullptr;
 public:
 	void Push(System::String^ color);
 	System::String^ Pop();
