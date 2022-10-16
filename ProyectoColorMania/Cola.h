@@ -9,7 +9,7 @@ ref class Cola
 public:
 	void Agregar(Node^ nodo);
 	Node^ Sacar();
-	int Clear();
+	void Clear();
 	int getLength();
 	bool isEmpty();
 	int contador;

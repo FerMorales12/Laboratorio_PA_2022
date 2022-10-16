@@ -42,8 +42,11 @@ Node^ Cola::Sacar() {
 	}
 	return temp;
 }
-int Cola::Clear() {
-	return -1;
+void Cola::Clear() {
+	while (!isEmpty())
+	{
+		Sacar();
+	}
 }
 int Cola::getLength() {
 	return largo;
