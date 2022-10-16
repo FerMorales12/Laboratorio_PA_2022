@@ -11,5 +11,6 @@ public:
 	void Sacar();
 	void Clear();
 	int getLength();
+	bool isEmpty();
 };
 
