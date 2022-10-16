@@ -1,8 +1,9 @@
 #pragma once
+using namespace System;
 ref class Node
 {
 public:
 	Node^ Next;
-	System::String^ Color;
+	String^ Color;
 };
 
