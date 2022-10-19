@@ -83,6 +83,7 @@ namespace ProyectoColorMania {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		int contadorX;
 		openFileDialog1->FileName = "";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
@@ -91,6 +92,13 @@ namespace ProyectoColorMania {
 				for (int i = 0; i < lineas->Length; i++) 
 				{
 					array<String^>^ lineas2 = lineas[i]->Split(',');
+					for (int j = 0; j < lineas2->Length; j++)
+					{
+						if (lineas2[i]=="X")
+						{
+							contadorX++;
+						}
+					}
 				}
 			}
 		}
