@@ -42,6 +42,7 @@ namespace ProyectoColorMania {
 	private: System::Windows::Forms::RadioButton^ radioButton2;
 	private: System::Windows::Forms::RadioButton^ radioButton3;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::Button^ button2;
 
 	private:
 		/// <summary>
@@ -62,11 +63,12 @@ namespace ProyectoColorMania {
 			this->radioButton2 = (gcnew System::Windows::Forms::RadioButton());
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(315, 27);
+			this->button1->Location = System::Drawing::Point(402, 19);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(143, 30);
 			this->button1->TabIndex = 0;
@@ -81,7 +83,7 @@ namespace ProyectoColorMania {
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(342, 92);
+			this->radioButton1->Location = System::Drawing::Point(429, 84);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(47, 17);
 			this->radioButton1->TabIndex = 1;
@@ -92,7 +94,7 @@ namespace ProyectoColorMania {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(342, 115);
+			this->radioButton2->Location = System::Drawing::Point(429, 107);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(54, 17);
 			this->radioButton2->TabIndex = 2;
@@ -103,7 +105,7 @@ namespace ProyectoColorMania {
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(342, 138);
+			this->radioButton3->Location = System::Drawing::Point(429, 130);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(63, 17);
 			this->radioButton3->TabIndex = 3;
@@ -114,24 +116,34 @@ namespace ProyectoColorMania {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(335, 76);
+			this->label1->Location = System::Drawing::Point(422, 68);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(54, 13);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"Dificultad:";
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(402, 153);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(143, 30);
+			this->button2->TabIndex = 5;
+			this->button2->Text = L"Cambiar de pila a cola";
+			this->button2->UseVisualStyleBackColor = true;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(513, 321);
+			this->ClientSize = System::Drawing::Size(557, 339);
+			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->radioButton3);
 			this->Controls->Add(this->radioButton2);
 			this->Controls->Add(this->radioButton1);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Text = L"ColorMania";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -139,25 +151,12 @@ namespace ProyectoColorMania {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		button1->Text = "Abrir archivo de juego";
-		int contadorX;
+		int contadorX=0;
 		openFileDialog1->FileName = "";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
-			while (lineas->Length>0)
-			{
-				for (int i = 0; i < lineas->Length; i++) 
-				{
-					array<String^>^ lineas2 = lineas[i]->Split(',');
-					for (int j = 0; j < lineas2->Length; j++)
-					{
-						if (lineas2[i]=="X")
-						{
-							contadorX++;
-						}
-					}
-				}
-			}
 		}
 	}
 	};
+	
 }
