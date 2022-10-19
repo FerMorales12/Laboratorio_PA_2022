@@ -1,3 +1,7 @@
+#include "Node.h"
+#include "Pila.h"
+#include "Cola.h"
+
 #pragma once
 
 namespace ProyectoColorMania {
@@ -15,7 +19,12 @@ namespace ProyectoColorMania {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+		static int segundos = 0;
+		static int minutos=0;
+		static String^ Sec;
+		static String^ Min;
 	public:
+		
 		MyForm(void)
 		{
 			InitializeComponent();
@@ -43,12 +52,18 @@ namespace ProyectoColorMania {
 	private: System::Windows::Forms::RadioButton^ radioButton3;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::Button^ btnJugar;
+	private: System::Windows::Forms::Timer^ timer1;
+	private: System::Windows::Forms::Label^ label3;
+	private: System::ComponentModel::IContainer^ components;
 
 	private:
 		/// <summary>
 		/// Variable del diseñador necesaria.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -57,6 +72,7 @@ namespace ProyectoColorMania {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
@@ -64,11 +80,17 @@ namespace ProyectoColorMania {
 			this->radioButton3 = (gcnew System::Windows::Forms::RadioButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->btnJugar = (gcnew System::Windows::Forms::Button());
+			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(402, 19);
+			this->button1->Location = System::Drawing::Point(439, 14);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(143, 30);
 			this->button1->TabIndex = 0;
@@ -83,7 +105,7 @@ namespace ProyectoColorMania {
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
-			this->radioButton1->Location = System::Drawing::Point(429, 84);
+			this->radioButton1->Location = System::Drawing::Point(439, 79);
 			this->radioButton1->Name = L"radioButton1";
 			this->radioButton1->Size = System::Drawing::Size(47, 17);
 			this->radioButton1->TabIndex = 1;
@@ -94,7 +116,7 @@ namespace ProyectoColorMania {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(429, 107);
+			this->radioButton2->Location = System::Drawing::Point(439, 102);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(54, 17);
 			this->radioButton2->TabIndex = 2;
@@ -105,7 +127,7 @@ namespace ProyectoColorMania {
 			// radioButton3
 			// 
 			this->radioButton3->AutoSize = true;
-			this->radioButton3->Location = System::Drawing::Point(429, 130);
+			this->radioButton3->Location = System::Drawing::Point(439, 125);
 			this->radioButton3->Name = L"radioButton3";
 			this->radioButton3->Size = System::Drawing::Size(63, 17);
 			this->radioButton3->TabIndex = 3;
@@ -116,7 +138,7 @@ namespace ProyectoColorMania {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(422, 68);
+			this->label1->Location = System::Drawing::Point(439, 63);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(54, 13);
 			this->label1->TabIndex = 4;
@@ -124,18 +146,58 @@ namespace ProyectoColorMania {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(402, 153);
+			this->button2->Location = System::Drawing::Point(439, 148);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(143, 30);
 			this->button2->TabIndex = 5;
 			this->button2->Text = L"Cambiar de pila a cola";
 			this->button2->UseVisualStyleBackColor = true;
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(439, 191);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(118, 13);
+			this->label2->TabIndex = 6;
+			this->label2->Text = L"Movimientos restantes: ";
+			// 
+			// dataGridView1
+			// 
+			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Location = System::Drawing::Point(7, 7);
+			this->dataGridView1->Name = L"dataGridView1";
+			this->dataGridView1->Size = System::Drawing::Size(374, 237);
+			this->dataGridView1->TabIndex = 7;
+			// 
+			// btnJugar
+			// 
+			this->btnJugar->Location = System::Drawing::Point(165, 272);
+			this->btnJugar->Name = L"btnJugar";
+			this->btnJugar->Size = System::Drawing::Size(91, 26);
+			this->btnJugar->TabIndex = 8;
+			this->btnJugar->Text = L"A jugar";
+			this->btnJugar->UseVisualStyleBackColor = true;
+			this->btnJugar->Click += gcnew System::EventHandler(this, &MyForm::btnJugar_Click);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(439, 215);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(89, 13);
+			this->label3->TabIndex = 9;
+			this->label3->Text = L"Tiempo restante: ";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(557, 339);
+			this->ClientSize = System::Drawing::Size(651, 339);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->btnJugar);
+			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->radioButton3);
@@ -144,6 +206,7 @@ namespace ProyectoColorMania {
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"ColorMania";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -157,6 +220,43 @@ namespace ProyectoColorMania {
 			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
 		}
 	}
-	};
-	
+	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
+		int movimientos;
+		int tiempo;
+		if (radioButton1->Checked == true)
+			label2->Text = "Movimientos restantes disponibles: N/A";
+		else if (radioButton2->Checked == true) {
+			movimientos = 50;
+			minutos = 10;
+			timer1->Start();
+			if (segundos == 60) {
+				
+				minutos--;
+				
+				Min = Convert::ToString(minutos);
+				label3->Text = "Tiempo: " + Min+" minutos";
+				if (minutos == 0) {
+					timer1->Stop();
+					label3->Text = "0";
+					MessageBox::Show("Se acabó el tiempo!");
+				}
+			}
+			
+			
+			
+			label2->Text = "Movimientos restantes disponibles: " + movimientos;
+		}
+		else if (radioButton3->Checked == true) {
+			movimientos = 25;
+			
+			label2->Text = "Movimientos restantes disponibles: " + movimientos;
+		}
+	}
+};
+void DePilaCola() {
+		Pila^ miPila = gcnew Pila();
+		Cola^ miCola = gcnew Cola();
+		Node^ bloque = gcnew Node();
+		
+	}
 }
