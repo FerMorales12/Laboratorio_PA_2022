@@ -1,14 +1,17 @@
 #pragma once
 #include "Node.h"
+
+using namespace System;
+
 ref class Pila
 {
 private:
 	Node^ header = nullptr;
 public:
 	void Push(System::String^ color);
-	System::String^ Pop();
+	String^ Pop();
 	int IndexOf(System::String^ color );
 	int Count();
-	System::String^ GetItem(int index);
+	String^ GetItem(int index);
 };
 

@@ -1,4 +1,6 @@
 #include "Pila.h"
+using namespace System;
+
 void Pila::Push(System::String^ color) {
 	Node^ nuevo = gcnew Node;
 	if (header == nullptr) {
@@ -13,7 +15,7 @@ void Pila::Push(System::String^ color) {
 	}
 }
 
-System::String^ Pila::Pop() {
+String^ Pila::Pop() {
 	Node^ iterador = gcnew Node;
 	if (header == nullptr) {
 		return "";
@@ -55,7 +57,7 @@ int Pila::Count() {
 	}
 }
 
-System::String^ Pila::GetItem(int index) {
+String^ Pila::GetItem(int index) {
 	if (index < 0 || index > this->Count()) {
 		throw gcnew System::IndexOutOfRangeException();
 	}
