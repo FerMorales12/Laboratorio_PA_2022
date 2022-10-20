@@ -237,7 +237,7 @@ namespace ProyectoColorMania {
 							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
 							NuevaColumna->CellTemplate = cellTemplate;
 							Mapa->Columns->Add(NuevaColumna);
-							
+							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Green;
 						}
 						if (lineas2[i] == "R") {
 							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
@@ -245,6 +245,7 @@ namespace ProyectoColorMania {
 							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
 							NuevaColumna->CellTemplate = cellTemplate;
 							Mapa->Columns->Add(NuevaColumna);
+							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Red;
 
 						}
 						if (lineas2[i] == "A") {
@@ -253,7 +254,7 @@ namespace ProyectoColorMania {
 							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
 							NuevaColumna->CellTemplate = cellTemplate;
 							Mapa->Columns->Add(NuevaColumna);
-
+							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Yellow;
 						}
 						if (lineas2[i] == "M") {
 							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
@@ -261,7 +262,7 @@ namespace ProyectoColorMania {
 							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
 							NuevaColumna->CellTemplate = cellTemplate;
 							Mapa->Columns->Add(NuevaColumna);
-
+							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Purple;
 						}
 					}
 				}
