@@ -53,7 +53,8 @@ namespace ProyectoColorMania {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::DataGridView^ dataGridView1;
+	private: System::Windows::Forms::DataGridView^ Mapa;
+
 	private: System::Windows::Forms::Button^ btnJugar;
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::Label^ label3;
@@ -81,11 +82,11 @@ namespace ProyectoColorMania {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Mapa = (gcnew System::Windows::Forms::DataGridView());
 			this->btnJugar = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Mapa))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// button1
@@ -162,13 +163,13 @@ namespace ProyectoColorMania {
 			this->label2->TabIndex = 6;
 			this->label2->Text = L"Movimientos restantes: ";
 			// 
-			// dataGridView1
+			// Mapa
 			// 
-			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(7, 7);
-			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(374, 237);
-			this->dataGridView1->TabIndex = 7;
+			this->Mapa->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->Mapa->Location = System::Drawing::Point(7, 7);
+			this->Mapa->Name = L"Mapa";
+			this->Mapa->Size = System::Drawing::Size(409, 259);
+			this->Mapa->TabIndex = 7;
 			// 
 			// btnJugar
 			// 
@@ -196,7 +197,7 @@ namespace ProyectoColorMania {
 			this->ClientSize = System::Drawing::Size(651, 339);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnJugar);
-			this->Controls->Add(this->dataGridView1);
+			this->Controls->Add(this->Mapa);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label1);
@@ -206,18 +207,40 @@ namespace ProyectoColorMania {
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
 			this->Text = L"ColorMania";
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Mapa))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		button1->Text = "Abrir archivo de juego";
+		Node^ bloque;
 		int contadorX=0;
 		openFileDialog1->FileName = "";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
+			while (lineas->Length > 0)
+			{
+				for (int i = 0; i < lineas->Length; i++)
+				{
+					array<String^>^ lineas2 = lineas[i]->Split(',');
+					for (int j = 0; j < lineas2->Length; j++)
+					{
+						if (lineas2[i] == "X")
+						{
+							contadorX++;
+						}
+						//Vamos a leer el color del bloque
+						if (lineas2[i] == "V") {
+							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+							NuevaColumna->Width = 75;
+							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+							NuevaColumna->CellTemplate = cellTemplate;
+							Mapa->Columns->Add(NuevaColumna);
+						}
+					}
+				}
+			}
 		}
 	}
 	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
