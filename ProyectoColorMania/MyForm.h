@@ -23,6 +23,7 @@ namespace ProyectoColorMania {
 		static int minutos=0;
 		static String^ Sec;
 		static String^ Min;
+		int contadorX = 0;//Contador para saltos de linea
 	public:
 		
 		MyForm(void)
@@ -215,7 +216,7 @@ namespace ProyectoColorMania {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		Node^ bloque;
-		int contadorX=0;
+		
 		openFileDialog1->FileName = "";
 		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
@@ -302,6 +303,8 @@ namespace ProyectoColorMania {
 		}
 	}
 };
+
+
 void DePilaCola() {
 		Pila^ miPila = gcnew Pila();
 		Cola^ miCola = gcnew Cola();
@@ -314,4 +317,23 @@ void DePilaCola() {
 			miCola->Agregar(bloque);
 		}
 	}
+void Pintar(int columna, int fila, int valor) {
+	//El 1 será para Rojo, El 2 para Verde, 3 para Amarillo 4 para Morado
+	if (valor == 1) {
+		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Red;
+	}
+	if (valor == 2) {
+		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Green;
+	}
+	if (valor == 3) {
+		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Yellow;
+	}
+	if (valor == 4) {
+		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Purple;
+	}
+}
+
+
+
+
 }
