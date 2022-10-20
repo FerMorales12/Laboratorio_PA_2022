@@ -319,6 +319,7 @@ void DePilaCola() {
 	}
 void Pintar(int columna, int fila, int valor) {
 	//El 1 será para Rojo, El 2 para Verde, 3 para Amarillo 4 para Morado
+	DataGridView^ Mapa = gcnew DataGridView();
 	if (valor == 1) {
 		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Red;
 	}
