@@ -237,6 +237,31 @@ namespace ProyectoColorMania {
 							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
 							NuevaColumna->CellTemplate = cellTemplate;
 							Mapa->Columns->Add(NuevaColumna);
+							
+						}
+						if (lineas2[i] == "R") {
+							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+							NuevaColumna->Width = 75;
+							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+							NuevaColumna->CellTemplate = cellTemplate;
+							Mapa->Columns->Add(NuevaColumna);
+
+						}
+						if (lineas2[i] == "A") {
+							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+							NuevaColumna->Width = 75;
+							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+							NuevaColumna->CellTemplate = cellTemplate;
+							Mapa->Columns->Add(NuevaColumna);
+
+						}
+						if (lineas2[i] == "M") {
+							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+							NuevaColumna->Width = 75;
+							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+							NuevaColumna->CellTemplate = cellTemplate;
+							Mapa->Columns->Add(NuevaColumna);
+
 						}
 					}
 				}
