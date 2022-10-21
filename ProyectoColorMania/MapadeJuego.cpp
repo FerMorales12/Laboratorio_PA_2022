@@ -13,3 +13,7 @@ void DePilaCola() {
 	}
 }
 
+void MapaDeJuego::Capacidad(int numCap) {
+	capacidadMaxima = numCap;
+}
+
