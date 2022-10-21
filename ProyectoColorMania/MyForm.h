@@ -378,12 +378,14 @@ namespace ProyectoColorMania {
 			   if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				   array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
 				   mapaJuego->CargaInicial(openFileDialog1->FileName);
-						   array<String^>^ lineas2 = lineas[0]->Split(',');
+				   array<String^>^ lineas2 = lineas[0]->Split(',');
 						   for (int j = 0; j < lineas2->Length; j++)
 						   {
 							   if (lineas2[j] == "X")
 							   {
 								   contadorX++;
+								   DataGridViewRow^ NuevaFila = gcnew DataGridViewRow();
+								   Mapa->Rows->Add(NuevaFila);
 							   }
 							   //Vamos a leer el color del bloque
 							   if (lineas2[j] == "V") {
