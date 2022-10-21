@@ -61,7 +61,7 @@ bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 		return true;
 	}
 	else {
-		if (MapaCola[indiceOrigen].Count() >= capacidadMaxima || MapaCola[indiceEntrada].Count() >= capacidadMaxima) {
+		if (MapaCola[indiceOrigen]->getLength() >= capacidadMaxima || MapaCola[indiceEntrada]->getLength() >= capacidadMaxima) {
 			return false;
 		}
 		MapaCola[indiceEntrada]->Agregar(MapaCola[indiceOrigen]->Sacar());

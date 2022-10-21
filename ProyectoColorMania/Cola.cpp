@@ -49,7 +49,20 @@ void Cola::Clear() {
 	}
 }
 int Cola::getLength() {
-	return largo;
+	if (Head == nullptr)
+		return 0;
+	else {
+		Node^ iterador = gcnew Node();
+		iterador = Head;
+		largo = 1;
+		while (iterador->Next!=nullptr)
+		{
+			iterador = iterador->Next;
+			largo++;
+		}
+		return largo;
+	}
+	
 }
 
 void Cola::Print() {
