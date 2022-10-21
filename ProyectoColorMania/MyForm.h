@@ -23,7 +23,9 @@ namespace ProyectoColorMania {
 		static int minutos=0;
 		static String^ Sec;
 		static String^ Min;
-		int contadorX = 0;//Contador para saltos de linea
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Label^ label4;
+		   int contadorX = 0;//Contador para saltos de linea
 	public:
 		
 		MyForm(void)
@@ -87,6 +89,8 @@ namespace ProyectoColorMania {
 			this->btnJugar = (gcnew System::Windows::Forms::Button());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Mapa))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -191,11 +195,29 @@ namespace ProyectoColorMania {
 			this->label3->TabIndex = 9;
 			this->label3->Text = L"Tiempo restante: ";
 			// 
+			// textBox1
+			// 
+			this->textBox1->Location = System::Drawing::Point(439, 263);
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(108, 20);
+			this->textBox1->TabIndex = 10;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(436, 238);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(116, 13);
+			this->label4->TabIndex = 11;
+			this->label4->Text = L"Capacidad de las pilas:";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(651, 339);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnJugar);
 			this->Controls->Add(this->Mapa);
@@ -215,7 +237,18 @@ namespace ProyectoColorMania {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Apilar();
+		
+		try
+		{
+			int capacidad = Convert::ToInt32(textBox1->Text);
+			Apilar();
+
+		}
+		catch (Exception ^e)
+		{
+			MessageBox::Show("Debes ingresar un valor mayor que 1.");
+		}
+		
 		
 	}
 	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -324,7 +357,7 @@ namespace ProyectoColorMania {
 				   }
 			   }
 		   }
-		   void Colar() {
+		  /* void Colar() {
 			   Node^ colorbloque = gcnew Node();
 			   OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
 			   openFileDialog1->FileName = "";
@@ -342,7 +375,7 @@ namespace ProyectoColorMania {
 					   }
 				   }
 			   }
-		   }
+		   }*/
 };
 
 
