@@ -5,11 +5,13 @@
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Pila.cpp" />
+    <ClCompile Include="MapadeJuego.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cola.h" />
     <ClInclude Include="MyForm.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Pila.h" />
+    <ClInclude Include="MapadeJuego.h" />
   </ItemGroup>
 </Project>

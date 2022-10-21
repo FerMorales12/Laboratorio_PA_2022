@@ -1,7 +1,7 @@
 #include "Pila.h"
 using namespace System;
 
-void Pila::Push(System::String^ color) {
+void Pila::Push(String^ color) {
 	Node^ nuevo = gcnew Node;
 	if (header == nullptr) {
 		nuevo->Color = color;
@@ -27,7 +27,7 @@ String^ Pila::Pop() {
 	}
 }
 
-int Pila::IndexOf(System::String^ color) {
+int Pila::IndexOf(String^ color) {
 	int indice = -1;
 	Node^ iterador = gcnew Node;
 	iterador = header;

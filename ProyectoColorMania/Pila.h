@@ -10,7 +10,7 @@ private:
 public:
 	void Push(System::String^ color);
 	String^ Pop();
-	int IndexOf(System::String^ color );
+	int IndexOf(String^ color );
 	int Count();
 	String^ GetItem(int index);
 };

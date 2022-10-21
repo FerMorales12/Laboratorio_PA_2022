@@ -122,12 +122,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cola.cpp" />
+    <ClCompile Include="MapadeJuego.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Pila.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cola.h" />
+    <ClInclude Include="MapadeJuego.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

@@ -215,60 +215,7 @@ namespace ProyectoColorMania {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		Node^ bloque;
 		
-		openFileDialog1->FileName = "";
-		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
-			array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
-			while (lineas->Length > 0)
-			{
-				for (int i = 0; i < lineas->Length; i++)
-				{
-					array<String^>^ lineas2 = lineas[i]->Split(',');
-					for (int j = 0; j < lineas2->Length; j++)
-					{
-						if (lineas2[i] == "X")
-						{
-							contadorX++;
-						}
-						//Vamos a leer el color del bloque
-						if (lineas2[i] == "V") {
-							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
-							NuevaColumna->Width = 75;
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							NuevaColumna->CellTemplate = cellTemplate;
-							Mapa->Columns->Add(NuevaColumna);
-							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Green;
-						}
-						if (lineas2[i] == "R") {
-							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
-							NuevaColumna->Width = 75;
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							NuevaColumna->CellTemplate = cellTemplate;
-							Mapa->Columns->Add(NuevaColumna);
-							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Red;
-
-						}
-						if (lineas2[i] == "A") {
-							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
-							NuevaColumna->Width = 75;
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							NuevaColumna->CellTemplate = cellTemplate;
-							Mapa->Columns->Add(NuevaColumna);
-							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Yellow;
-						}
-						if (lineas2[i] == "M") {
-							DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
-							NuevaColumna->Width = 75;
-							DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
-							NuevaColumna->CellTemplate = cellTemplate;
-							Mapa->Columns->Add(NuevaColumna);
-							Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Purple;
-						}
-					}
-				}
-			}
-		}
 	}
 	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
 		int movimientos;
@@ -302,37 +249,94 @@ namespace ProyectoColorMania {
 			label2->Text = "Movimientos restantes disponibles: " + movimientos;
 		}
 	}
+
+		   void DePilaCola() {
+			   Pila^ miPila = gcnew Pila();
+			   Cola^ miCola = gcnew Cola();
+			   Node^ bloque = gcnew Node();
+			   bloque->valor;
+			   while (miPila->Count() != 0)
+			   {
+				   miPila->Pop();
+
+				   miCola->Agregar(bloque);
+			   }
+		   }
+		   void Pintar(int columna, int fila, int valor) {
+			   //El 1 será para Rojo, El 2 para Verde, 3 para Amarillo 4 para Morado
+			   DataGridView^ Mapa = gcnew DataGridView();
+			   if (valor == 1) {
+				   Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Red;
+			   }
+			   if (valor == 2) {
+				   Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Green;
+			   }
+			   if (valor == 3) {
+				   Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Yellow;
+			   }
+			   if (valor == 4) {
+				   Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Purple;
+			   }
+		   }
+		   void Apilar() {
+			   Node^ bloque;
+			   OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			   openFileDialog1->FileName = "";
+			   if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				   array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
+				   while (lineas->Length > 0)
+				   {
+					   for (int i = 0; i < lineas->Length; i++)
+					   {
+						   array<String^>^ lineas2 = lineas[i]->Split(',');
+						   for (int j = 0; j < lineas2->Length; j++)
+						   {
+							   if (lineas2[i] == "X")
+							   {
+								   contadorX++;
+							   }
+							   //Vamos a leer el color del bloque
+							   if (lineas2[i] == "V") {
+								   DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+								   NuevaColumna->Width = 75;
+								   DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+								   NuevaColumna->CellTemplate = cellTemplate;
+								   Mapa->Columns->Add(NuevaColumna);
+								   Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Green;
+							   }
+							   if (lineas2[i] == "R") {
+								   DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+								   NuevaColumna->Width = 75;
+								   DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+								   NuevaColumna->CellTemplate = cellTemplate;
+								   Mapa->Columns->Add(NuevaColumna);
+								   Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Red;
+
+							   }
+							   if (lineas2[i] == "A") {
+								   DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+								   NuevaColumna->Width = 75;
+								   DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+								   NuevaColumna->CellTemplate = cellTemplate;
+								   Mapa->Columns->Add(NuevaColumna);
+								   Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Yellow;
+							   }
+							   if (lineas2[i] == "M") {
+								   DataGridViewColumn^ NuevaColumna = gcnew DataGridViewColumn();
+								   NuevaColumna->Width = 75;
+								   DataGridViewCell^ cellTemplate = gcnew DataGridViewTextBoxCell();
+								   NuevaColumna->CellTemplate = cellTemplate;
+								   Mapa->Columns->Add(NuevaColumna);
+								   Mapa->Rows[i]->Cells[i]->Style->BackColor = Color::Purple;
+							   }
+						   }
+					   }
+				   }
+			   }
+		   }
 };
 
 
-void DePilaCola() {
-		Pila^ miPila = gcnew Pila();
-		Cola^ miCola = gcnew Cola();
-		Node^ bloque = gcnew Node();
-		bloque->valor;
-		while (miPila->Count()!=0)
-		{
-			miPila->Pop();
-			
-			miCola->Agregar(bloque);
-		}
-	}
-void Pintar(int columna, int fila, int valor) {
-	//El 1 será para Rojo, El 2 para Verde, 3 para Amarillo 4 para Morado
-	DataGridView^ Mapa = gcnew DataGridView();
-	if (valor == 1) {
-		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Red;
-	}
-	if (valor == 2) {
-		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Green;
-	}
-	if (valor == 3) {
-		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Yellow;
-	}
-	if (valor == 4) {
-		Mapa->Rows[fila]->Cells[columna]->Style->BackColor = Color::Purple;
-	}
-}
 
 
 
