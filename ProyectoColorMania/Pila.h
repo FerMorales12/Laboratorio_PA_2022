@@ -6,7 +6,7 @@ using namespace System;
 ref class Pila
 {
 private:
-	Node^ header = nullptr;
+	Node^ header;
 public:
 	void Push(System::String^ color);
 	String^ Pop();

@@ -77,6 +77,9 @@ bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 }
 
 bool MapadeJuego::CargaInicial(String^ archivo) {
+	for (int i = 0; i < 4; i++) {
+		MapaPila[i] = gcnew Pila;
+	}
 	bool archivoValido = true;
 	ArchivoEstado = archivo;
 	StreamReader^ lector = gcnew StreamReader(archivo);
