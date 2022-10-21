@@ -18,26 +18,26 @@ void MapadeJuego::Capacidad(int numCap) {
 }
 
 bool MapadeJuego::Gano() {
-	MapaPila = gcnew array<Pila^>^;
+	
 	bool gano = true;
 	if (esPila) {
 		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < MapaPila[i].Count() - 1; j++) {
-				if (MapaPila[i].GetItem(j) != MapaPila[i].GetItem(j + 1)) {
+			for (int j = 0; j < MapaPila[i]->Count() - 1; j++) {
+				if (MapaPila[i]->GetItem(j) != MapaPila[i]->GetItem(j + 1)) {
 					gano = false;
 					i = 5;
-					j = MapaPila[i].Count() + 1;
+					j = MapaPila[i]->Count() + 1;
 				}
 			}
 		}
 	}
 	else {
 		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < MapaCola[i].Count() - 1; j++) {
-				if (MapaCola[i].GetItem(j) != MapaCola[i].GetItem(j + 1)) {
+			for (int j = 0; j < MapaCola[i]->Count() - 1; j++) {
+				if (MapaCola[i]->GetItem(j) != MapaCola[i]->GetItem(j + 1)) {
 					gano = false;
 					i = 5;
-					j = MapaCola[i].Count() + 1;
+					j = MapaCola[i]->Count() + 1;
 				}
 			}
 		}
@@ -47,10 +47,10 @@ bool MapadeJuego::Gano() {
 
 bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 	if (esPila) {
-		if (MapaPila[indiceOrigen].Count() >= capacidadMaxima || MapaPila[indiceEntrada].Count() >= capacidadMaxima) {
+		if (MapaPila[indiceOrigen]->Count() >= capacidadMaxima || MapaPila[indiceEntrada]->Count() >= capacidadMaxima) {
 			return false;
 		}
-		MapaPila[indiceEntrada].Push(MapaPila[indiceOrigen].Pop());
+		MapaPila[indiceEntrada]->Push(MapaPila[indiceOrigen]->Pop());
 		if (ArchivoMovimientos != "") {
 			StreamWriter^ movs = gcnew StreamWriter(ArchivoMovimientos);
 			System::String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
