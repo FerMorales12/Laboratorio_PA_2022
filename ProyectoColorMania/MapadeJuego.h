@@ -3,12 +3,13 @@
 #include "Cola.h"
 #include "MyForm.h"
 #pragma once
+using namespace System;
 ref class MapadeJuego
 {
 private:
-	array<Cola^>^ MapaCola = gcnew array<Cola^>^(4);
-	array<Pila^>^ MapaPila = gcnew array<Pila^>^(4);
-	System::String^ ArchivoMovimientos;
+	array<Cola^>^ MapaCola = gcnew array<Cola^,1>^(4);
+	array<Pila^>^ MapaPila = gcnew array<Pila^,1>^(4);
+	System::String^ ArchivoMovimientos = "";
 	System::String^ ArchivoEstado;
 	bool esPila = true;
 	int capacidadMaxima;

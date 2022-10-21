@@ -43,3 +43,30 @@ bool MapaDeJuego::Gano() {
 	}
 	return gano;
 }
+
+bool MapaDeJuego::Mover(int indiceOrigen, int indiceEntrada) {
+	if (esPila) {
+		if (MapaPila[indiceOrigen].Count() >= capacidadMaxima || MapaPila[indiceEntrada].Count() >= capacidadMaxima) {
+			return false;
+		}
+		MapaPila[indiceEntrada].Push(MapaPila[indiceOrigen].Pop());
+		if (ArchivoMovimientos != "") {
+			StreamWriter^ movs = gcnew StreamWriter(ArchivoMovimientos);
+			System::String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
+			movs->WriteLine(mavx);
+		}
+		return true;
+	}
+	else {
+		if (MapaCola[indiceOrigen].Count() >= capacidadMaxima || MapaCola[indiceEntrada].Count() >= capacidadMaxima) {
+			return false;
+		}
+		MapaCola[indiceEntrada].Agregar(MapaCola[indiceOrigen].Sacar());
+		if (ArchivoMovimientos != "") {
+			StreamWriter^ movs = gcnew StreamWriter(ArchivoMovimientos);
+			System::String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
+			movs->WriteLine(mavx);
+		}
+		return true;
+	}
+}
