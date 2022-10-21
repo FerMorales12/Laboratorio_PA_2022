@@ -1,7 +1,7 @@
 #include "Node.h"
 #include "Pila.h"
 #include "Cola.h"
-#include "MyForm.h"
+
 #pragma once
 using namespace System;
 ref class MapadeJuego

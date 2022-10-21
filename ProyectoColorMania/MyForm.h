@@ -1,6 +1,7 @@
 #include "Node.h"
 #include "Pila.h"
 #include "Cola.h"
+#include "MapadeJuego.h"
 #pragma once
 
 namespace ProyectoColorMania {
@@ -297,15 +298,15 @@ namespace ProyectoColorMania {
 
 		}
 #pragma endregion
-		private: MapadeJuego^ mapaJuego = gcnew MapadeJuego;
-			   int capacidad;
+		MapadeJuego^ mapaJuego = gcnew MapadeJuego;
+	int capacidad;
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		try
 		{
 			capacidad = Convert::ToInt32(textBox1->Text);
-			Apilar();
 			mapaJuego->Capacidad(capacidad);
+			Apilar();
 		}
 		catch (Exception ^e)
 		{
@@ -314,7 +315,7 @@ namespace ProyectoColorMania {
 		
 		
 	}
-		   private: int movimientos;
+	int movimientos;
 	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
 		txtIndDst->Visible = true;
 		txtIndOrg->Visible = true;
@@ -466,12 +467,16 @@ private: System::Void btnMover_Click(System::Object^ sender, System::EventArgs^ 
 		validez = false;
 		MessageBox::Show("Índice fuera de rango.");
 	}
-	if (validez) {
+	if (validez && movimientos > 0) {
 		mapaJuego->Mover(inxOrg,inxDst);
+		movimientos--;
 		if (mapaJuego->Gano()) {
 			btnMover->Visible = false;
 			MessageBox::Show("¡Enhorabuena! Ha ganado el juego.");
 		}
+	}
+	else if (movimientos == 0) {
+		MessageBox::Show("Se ha quedado sin movimientos.");
 	}
 }
 };
