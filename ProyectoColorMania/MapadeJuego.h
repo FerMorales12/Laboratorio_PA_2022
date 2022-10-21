@@ -19,7 +19,10 @@ public:
 	bool Mover(int indiceOrigen, int indiceEntrada);
 	bool Gano();
 	void Capacidad(int numCap);
-	
+	bool CargaInicial(String^ archivo);
+	void DefinirArchivoMovimientos(String^ archMov);
+	void Resolver();
+	void Guardar();
 	void DePilaCola();
 };
 

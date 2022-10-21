@@ -74,3 +74,40 @@ bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 		return true;
 	}
 }
+
+bool MapadeJuego::CargaInicial(String^ archivo) {
+	bool archivoValido = true;
+	ArchivoEstado = archivo;
+	StreamReader^ lector = gcnew StreamReader(archivo);
+	String^ estadoInicial = lector->ReadLine();
+	int jdx = 0;
+	for (int i = 0; i < estadoInicial->Length; i++) {
+		if (estadoInicial[i] == 'A' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+			MapaPila[jdx]->Push("Amarillo");
+		}
+		else if (estadoInicial[i] == 'M' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+			MapaPila[jdx]->Push("Morado");
+		}
+		else if (estadoInicial[i] == 'R' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+			MapaPila[jdx]->Push("Rojo");
+		}
+		else if (estadoInicial[i] == 'V' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+			MapaPila[jdx]->Push("Verde");
+		}
+		else if (estadoInicial[i] == 'X' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+			jdx++;
+		}
+		else {
+			archivoValido = false;
+			i = estadoInicial->Length + 1;
+		}
+	}
+	if (!archivoValido) {
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < MapaPila[i]->Count(); j++) {
+				MapaPila[i]->Pop();
+			}
+		}
+	}
+	return archivoValido;
+}
