@@ -1,5 +1,7 @@
 #include "MapadeJuego.h"
 
+using namespace System;
+
 void DePilaCola() {
 	Pila^ miPila = gcnew Pila();
 	Cola^ miCola = gcnew Cola();
@@ -62,10 +64,10 @@ bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 		if (MapaCola[indiceOrigen].Count() >= capacidadMaxima || MapaCola[indiceEntrada].Count() >= capacidadMaxima) {
 			return false;
 		}
-		MapaCola[indiceEntrada].Agregar(MapaCola[indiceOrigen].Sacar());
+		MapaCola[indiceEntrada]->Agregar(MapaCola[indiceOrigen]->Sacar());
 		if (ArchivoMovimientos != "") {
 			StreamWriter^ movs = gcnew StreamWriter(ArchivoMovimientos);
-			System::String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
+			String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
 			movs->WriteLine(mavx);
 		}
 		return true;
