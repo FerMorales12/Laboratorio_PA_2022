@@ -2,7 +2,7 @@
 
 using namespace System;
 using namespace System::IO;
-void DePilaCola() {
+void MapadeJuego::DePilaCola() {
 	Pila^ miPila = gcnew Pila();
 	Cola^ miCola = gcnew Cola();
 	Node^ bloque = gcnew Node();
