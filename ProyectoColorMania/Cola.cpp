@@ -50,7 +50,7 @@ void Cola::Clear() {
 }
 int Cola::getLength() {
 	if (Head == nullptr)
-		return 0;
+		return largo=0;
 	else {
 		Node^ iterador = gcnew Node();
 		iterador = Head;
