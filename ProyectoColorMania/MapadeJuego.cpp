@@ -94,8 +94,10 @@ bool MapadeJuego::CargaInicial(String^ archivo) {
 		else if (estadoInicial[i] == 'V' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
 			MapaPila[jdx]->Push("Verde");
 		}
-		else if (estadoInicial[i] == 'X' && jdx < 4 && MapaPila[jdx]->Count() < capacidadMaxima) {
+		else if (estadoInicial[i] == 'X' && jdx < 4) {
 			jdx++;
+		}
+		else if (estadoInicial[i] == ',') {
 		}
 		else {
 			archivoValido = false;
@@ -114,4 +116,53 @@ bool MapadeJuego::CargaInicial(String^ archivo) {
 
 void MapadeJuego::DefinirArchivoMovimientos(String^ archMov) {
 	ArchivoMovimientos = archMov;
+}
+
+void MapadeJuego::Guardar() {
+	StreamWriter^ escritor = gcnew StreamWriter(ArchivoEstado);
+	String^ nuevoEstado = "";
+	if (esPila) {
+		for (int i = 0; i < 4; i++) {
+			for (int j = MapaPila[i]->Count() - 1; j >= 0; j--) {
+				if (MapaPila[i]->GetItem(j) == "Amarillo") {
+					nuevoEstado += "A,";
+				}
+				else if (MapaPila[i]->GetItem(j) == "Morado") {
+					nuevoEstado += "M,";
+				}
+				else if (MapaPila[i]->GetItem(j) == "Rojo") {
+					nuevoEstado += "R,";
+				}
+				else if (MapaPila[i]->GetItem(j) == "Verde") {
+					nuevoEstado += "V,";
+				}
+			}
+			if (i != 3) {
+				nuevoEstado += "X,";
+			}
+		}
+		escritor->WriteLine(nuevoEstado);
+	}
+	else {
+		for (int i = 0; i < 4; i++) {
+			for (int j = MapaCola[i]->getLength() - 1; j >= 0; j--) {
+				if (MapaCola[i]->getItem(j) == "Amarillo") {
+					nuevoEstado += "A,";
+				}
+				else if (MapaCola[i]->getItem(j) == "Morado") {
+					nuevoEstado += "M,";
+				}
+				else if (MapaCola[i]->getItem(j) == "Rojo") {
+					nuevoEstado += "R,";
+				}
+				else if (MapaCola[i]->getItem(j) == "Verde") {
+					nuevoEstado += "V,";
+				}
+			}
+			if (i != 3) {
+				nuevoEstado += "X,";
+			}
+		}
+		escritor->WriteLine(nuevoEstado);
+	}
 }
