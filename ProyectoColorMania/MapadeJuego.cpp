@@ -2,6 +2,7 @@
 
 using namespace System;
 using namespace System::IO;
+
 void MapadeJuego::DePilaCola() {
 	Pila^ miPila = gcnew Pila();
 	Cola^ miCola = gcnew Cola();
@@ -166,3 +167,5 @@ void MapadeJuego::Guardar() {
 		escritor->WriteLine(nuevoEstado);
 	}
 }
+
+void MapadeJuego::Resolver() {}
