@@ -1,7 +1,6 @@
 #include "Node.h"
 #include "Pila.h"
 #include "Cola.h"
-
 #pragma once
 
 namespace ProyectoColorMania {
@@ -25,6 +24,11 @@ namespace ProyectoColorMania {
 		static String^ Min;
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::TextBox^ txtIndOrg;
+	private: System::Windows::Forms::TextBox^ txtIndDst;
+	private: System::Windows::Forms::Label^ lblOrg;
+	private: System::Windows::Forms::Label^ lblDst;
+	private: System::Windows::Forms::Button^ btnMover;
 		   int contadorX = 0;//Contador para saltos de linea
 	public:
 		
@@ -91,6 +95,11 @@ namespace ProyectoColorMania {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->txtIndOrg = (gcnew System::Windows::Forms::TextBox());
+			this->txtIndDst = (gcnew System::Windows::Forms::TextBox());
+			this->lblOrg = (gcnew System::Windows::Forms::Label());
+			this->lblDst = (gcnew System::Windows::Forms::Label());
+			this->btnMover = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->Mapa))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -178,7 +187,7 @@ namespace ProyectoColorMania {
 			// 
 			// btnJugar
 			// 
-			this->btnJugar->Location = System::Drawing::Point(165, 272);
+			this->btnJugar->Location = System::Drawing::Point(325, 272);
 			this->btnJugar->Name = L"btnJugar";
 			this->btnJugar->Size = System::Drawing::Size(91, 26);
 			this->btnJugar->TabIndex = 8;
@@ -211,11 +220,63 @@ namespace ProyectoColorMania {
 			this->label4->TabIndex = 11;
 			this->label4->Text = L"Capacidad de las pilas:";
 			// 
+			// txtIndOrg
+			// 
+			this->txtIndOrg->Location = System::Drawing::Point(12, 276);
+			this->txtIndOrg->Name = L"txtIndOrg";
+			this->txtIndOrg->Size = System::Drawing::Size(100, 20);
+			this->txtIndOrg->TabIndex = 12;
+			this->txtIndOrg->Visible = false;
+			// 
+			// txtIndDst
+			// 
+			this->txtIndDst->Location = System::Drawing::Point(12, 307);
+			this->txtIndDst->Name = L"txtIndDst";
+			this->txtIndDst->Size = System::Drawing::Size(100, 20);
+			this->txtIndDst->TabIndex = 13;
+			this->txtIndDst->Visible = false;
+			// 
+			// lblOrg
+			// 
+			this->lblOrg->AutoSize = true;
+			this->lblOrg->Location = System::Drawing::Point(119, 282);
+			this->lblOrg->Name = L"lblOrg";
+			this->lblOrg->Size = System::Drawing::Size(83, 13);
+			this->lblOrg->TabIndex = 14;
+			this->lblOrg->Text = L"Índice de origen";
+			this->lblOrg->Visible = false;
+			// 
+			// lblDst
+			// 
+			this->lblDst->AutoSize = true;
+			this->lblDst->Location = System::Drawing::Point(122, 313);
+			this->lblDst->Name = L"lblDst";
+			this->lblDst->Size = System::Drawing::Size(88, 13);
+			this->lblDst->TabIndex = 15;
+			this->lblDst->Text = L"Índice de destino";
+			this->lblDst->Visible = false;
+			// 
+			// btnMover
+			// 
+			this->btnMover->Location = System::Drawing::Point(216, 292);
+			this->btnMover->Name = L"btnMover";
+			this->btnMover->Size = System::Drawing::Size(75, 23);
+			this->btnMover->TabIndex = 16;
+			this->btnMover->Text = L"Mover";
+			this->btnMover->UseVisualStyleBackColor = true;
+			this->btnMover->Visible = false;
+			this->btnMover->Click += gcnew System::EventHandler(this, &MyForm::btnMover_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(651, 339);
+			this->Controls->Add(this->btnMover);
+			this->Controls->Add(this->lblDst);
+			this->Controls->Add(this->lblOrg);
+			this->Controls->Add(this->txtIndDst);
+			this->Controls->Add(this->txtIndOrg);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->label3);
@@ -236,13 +297,15 @@ namespace ProyectoColorMania {
 
 		}
 #pragma endregion
+		private: MapadeJuego^ mapaJuego = gcnew MapadeJuego;
+			   int capacidad;
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		
 		try
 		{
-			int capacidad = Convert::ToInt32(textBox1->Text);
+			capacidad = Convert::ToInt32(textBox1->Text);
 			Apilar();
-
+			mapaJuego->Capacidad(capacidad);
 		}
 		catch (Exception ^e)
 		{
@@ -251,9 +314,15 @@ namespace ProyectoColorMania {
 		
 		
 	}
+		   private: int movimientos;
 	private: System::Void btnJugar_Click(System::Object^ sender, System::EventArgs^ e) {
-		int movimientos;
+		txtIndDst->Visible = true;
+		txtIndOrg->Visible = true;
+		lblDst->Visible = true;
+		lblOrg->Visible = true;
+		btnMover->Visible = true;
 		int tiempo;
+
 		if (radioButton1->Checked == true)
 			label2->Text = "Movimientos restantes disponibles: N/A";
 		else if (radioButton2->Checked == true) {
@@ -307,6 +376,7 @@ namespace ProyectoColorMania {
 			   openFileDialog1->FileName = "";
 			   if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				   array<String^>^ lineas = File::ReadAllLines(openFileDialog1->FileName);
+				   mapaJuego->CargaInicial(openFileDialog1->FileName);
 				   while (lineas->Length > 0)
 				   {
 					   for (int i = 0; i < lineas->Length; i++)
@@ -376,6 +446,34 @@ namespace ProyectoColorMania {
 				   }
 			   }
 		   }*/
+private: System::Void btnMover_Click(System::Object^ sender, System::EventArgs^ e) {
+	int inxOrg;
+	int inxDst;
+	bool validez = true;
+	try {
+		inxOrg = Convert::ToInt32(txtIndOrg->Text);
+		inxDst = Convert::ToInt32(txtIndDst->Text);
+	}
+	catch (Exception^ e) {
+		validez = false;
+		MessageBox::Show("¡Un índice no es un número válido!");
+	}
+	if (inxOrg < 0 || inxDst < 0) {
+		validez = false;
+		MessageBox::Show("Índice menor a 0.");
+	}
+	if (inxOrg > 3 || inxDst > 3) {
+		validez = false;
+		MessageBox::Show("Índice fuera de rango.");
+	}
+	if (validez) {
+		mapaJuego->Mover(inxOrg,inxDst);
+		if (mapaJuego->Gano()) {
+			btnMover->Visible = false;
+			MessageBox::Show("¡Enhorabuena! Ha ganado el juego.");
+		}
+	}
+}
 };
 
 
