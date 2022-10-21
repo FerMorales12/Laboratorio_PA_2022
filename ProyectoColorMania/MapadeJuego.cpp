@@ -1,7 +1,7 @@
 #include "MapadeJuego.h"
 
 using namespace System;
-
+using namespace System::IO;
 void DePilaCola() {
 	Pila^ miPila = gcnew Pila();
 	Cola^ miCola = gcnew Cola();
@@ -35,11 +35,11 @@ bool MapadeJuego::Gano() {
 	}
 	else {
 		for (int i = 0; i < 4; i++) {
-			for (int j = 0; j < MapaCola[i]->Count() - 1; j++) {
-				if (MapaCola[i]->GetItem(j) != MapaCola[i]->GetItem(j + 1)) {
+			for (int j = 0; j < MapaCola[i]->getLength() - 1; j++) {
+				if (MapaCola[i]->getItem(j) != MapaCola[i]->getItem(j + 1)) {
 					gano = false;
 					i = 5;
-					j = MapaCola[i]->Count() + 1;
+					j = MapaCola[i]->getLength() + 1;
 				}
 			}
 		}
@@ -48,6 +48,7 @@ bool MapadeJuego::Gano() {
 }
 
 bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
+	
 	if (esPila) {
 		if (MapaPila[indiceOrigen]->Count() >= capacidadMaxima || MapaPila[indiceEntrada]->Count() >= capacidadMaxima) {
 			return false;
@@ -55,7 +56,7 @@ bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 		MapaPila[indiceEntrada]->Push(MapaPila[indiceOrigen]->Pop());
 		if (ArchivoMovimientos != "") {
 			StreamWriter^ movs = gcnew StreamWriter(ArchivoMovimientos);
-			System::String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
+			String^ mavx = "P" + indiceOrigen + ", P" + indiceEntrada;
 			movs->WriteLine(mavx);
 		}
 		return true;

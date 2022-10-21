@@ -14,5 +14,6 @@ public:
 	bool isEmpty();
 	int contador;
 	void Print();
+	String^ getItem(int index);
 };
 
