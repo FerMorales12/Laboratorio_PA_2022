@@ -111,3 +111,7 @@ bool MapadeJuego::CargaInicial(String^ archivo) {
 	}
 	return archivoValido;
 }
+
+void MapadeJuego::DefinirArchivoMovimientos(String^ archMov) {
+	ArchivoMovimientos = archMov;
+}
