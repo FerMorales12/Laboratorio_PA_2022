@@ -7,18 +7,19 @@ using namespace System;
 ref class MapadeJuego
 {
 private:
-	array<Cola^>^ MapaCola = gcnew array<Cola^,1>^(4);
-	array<Pila^>^ MapaPila = gcnew array<Pila^,1>^(4);
-	System::String^ ArchivoMovimientos = "";
-	System::String^ ArchivoEstado;
+	
+	String^ ArchivoMovimientos = "";
+	String^ ArchivoEstado;
 	bool esPila = true;
 	int capacidadMaxima;
 public:
+	Cola^ NuevaCola = gcnew Cola();
+	array <Cola^>^ MapaCola = gcnew array<Cola^>(4);
+	array<Pila^>^ MapaPila = gcnew array<Pila^>(4);
 	bool Mover(int indiceOrigen, int indiceEntrada);
 	bool Gano();
 	void Capacidad(int numCap);
-	void Apilar();
-	void Pintar();
+	
 	void DePilaCola();
 };
 

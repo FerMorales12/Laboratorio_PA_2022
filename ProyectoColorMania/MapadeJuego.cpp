@@ -13,11 +13,12 @@ void DePilaCola() {
 	}
 }
 
-void MapaDeJuego::Capacidad(int numCap) {
+void MapadeJuego::Capacidad(int numCap) {
 	capacidadMaxima = numCap;
 }
 
-bool MapaDeJuego::Gano() {
+bool MapadeJuego::Gano() {
+	MapaPila = gcnew array<Pila^>^;
 	bool gano = true;
 	if (esPila) {
 		for (int i = 0; i < 4; i++) {
@@ -44,7 +45,7 @@ bool MapaDeJuego::Gano() {
 	return gano;
 }
 
-bool MapaDeJuego::Mover(int indiceOrigen, int indiceEntrada) {
+bool MapadeJuego::Mover(int indiceOrigen, int indiceEntrada) {
 	if (esPila) {
 		if (MapaPila[indiceOrigen].Count() >= capacidadMaxima || MapaPila[indiceEntrada].Count() >= capacidadMaxima) {
 			return false;

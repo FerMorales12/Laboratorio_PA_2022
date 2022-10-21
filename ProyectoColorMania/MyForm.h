@@ -250,18 +250,7 @@ namespace ProyectoColorMania {
 		}
 	}
 
-		   void DePilaCola() {
-			   Pila^ miPila = gcnew Pila();
-			   Cola^ miCola = gcnew Cola();
-			   Node^ bloque = gcnew Node();
-			   bloque->valor;
-			   while (miPila->Count() != 0)
-			   {
-				   miPila->Pop();
-
-				   miCola->Agregar(bloque);
-			   }
-		   }
+		  
 		   void Pintar(int columna, int fila, int valor) {
 			   //El 1 será para Rojo, El 2 para Verde, 3 para Amarillo 4 para Morado
 			   DataGridView^ Mapa = gcnew DataGridView();
