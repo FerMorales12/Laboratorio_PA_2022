@@ -16,5 +16,38 @@ int Busquedas::Secuencial(int vector[], int search, int largoV) {
 }
 
 bool Busquedas::Burbuja(int vector[],int largoV) {
-	int i,j = 0;
+	int aux, i, j;
+	for (i = 0; i < largoV; i++) {
+		for (j = i + 1; j < largoV; j++) {
+			if (vector[i] > vector[j]) {
+				aux = vector[i];
+				vector[i] = vector[j];
+				vector[j] = aux;
+			}
+		}
+		return true;
+	}
+	return false;
+}
+
+int Busquedas::Binario(int vector[], int search, int largoV) {
+	/*Hasta que vea como puedo llamar a la función burbuja para el if*/
+	bool ordenado = true;
+	
+	int first = 0;
+	int last = largoV - 1;
+	int middle = (first + last) / 2;
+	if (Burbuja(vector, largoV)) {
+		while (first <= last) {
+			if (search == vector[middle])
+				return middle;
+			else {
+				if (vector[middle] > search)
+					last = middle - 1;
+				else
+					first = middle + 1;
+			}
+		}
+	}
+	return -1;
 }
