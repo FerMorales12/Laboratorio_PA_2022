@@ -1,5 +1,5 @@
 #pragma once
-
+#include "Busquedas.h"
 namespace Lab7DiegoMorales1209817 {
 
 	using namespace System;
@@ -86,6 +86,7 @@ namespace Lab7DiegoMorales1209817 {
 			this->button2->TabIndex = 1;
 			this->button2->Text = L"Búsqueda Secuencial";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -182,5 +183,10 @@ namespace Lab7DiegoMorales1209817 {
 		}
 		
 	}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	Busquedas^ Buscar = gcnew Busquedas();
+	int searched = Convert::ToInt32(textBox2->Text);
+	
+}
 };
 }
