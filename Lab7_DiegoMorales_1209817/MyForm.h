@@ -42,6 +42,8 @@ namespace Lab7DiegoMorales1209817 {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button4;
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::TextBox^ textBox2;
+	private: System::Windows::Forms::Label^ label3;
 
 	private:
 		/// <summary>
@@ -63,6 +65,8 @@ namespace Lab7DiegoMorales1209817 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -121,17 +125,35 @@ namespace Lab7DiegoMorales1209817 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(42, 252);
+			this->label2->Location = System::Drawing::Point(30, 281);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(43, 13);
 			this->label2->TabIndex = 6;
 			this->label2->Text = L"Arreglo:";
+			// 
+			// textBox2
+			// 
+			this->textBox2->Location = System::Drawing::Point(45, 219);
+			this->textBox2->Name = L"textBox2";
+			this->textBox2->Size = System::Drawing::Size(91, 20);
+			this->textBox2->TabIndex = 7;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(41, 192);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(101, 13);
+			this->label3->TabIndex = 8;
+			this->label3->Text = L"Elemento a buscar: ";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(354, 339);
+			this->Controls->Add(this->label3);
+			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->label1);
@@ -156,8 +178,9 @@ namespace Lab7DiegoMorales1209817 {
 		{
 			
 			arreglo[i]= rnd.Next(-10, 50);
+			label2->Text = Convert::ToString(arreglo[i]);
 		}
-		label2->Text = Convert::ToString(arreglo);
+		
 	}
 };
 }
