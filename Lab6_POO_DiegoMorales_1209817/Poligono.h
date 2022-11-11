@@ -1,11 +1,13 @@
 #pragma once
 ref class Poligono
 {
-protected:
+public:
 	int lados;
-	int longitud;
+	double longitud;
+protected:
+	
 	int id;
-	double area(int,int);
-	double perimetro(int, int);
+	virtual double area(double,double);
+	virtual double perimetro(double, double);
 };
 
