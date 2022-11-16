@@ -1,13 +1,19 @@
 #pragma once
-ref class Poligono
+public class Poligono
 {
-public:
-	int lados;
-	double longitud;
 protected:
-	
-	int id;
-	virtual double area(double,double);
-	virtual double perimetro(double, double);
+	static const int TRIANGULO = 0;
+	static const int RECTANGULO = 1;
+	static const int CUADRADO = 0;
+
+	double ladoA;
+	int type;
+public:
+	virtual double area() const {
+		return 0;
+	}
+	virtual double perimetro() const {
+		return 0;
+	}
 };
 
