@@ -4,7 +4,15 @@ class Rectangulo :
     public Poligono
 {
 public:
-    int ladoB;
+   
+    double ladoB;
+    Rectangulo() {
+        type = RECTANGULO;
+    }
+    Rectangulo(double _ladoA) {
+        ladoA = _ladoA;
+        type = RECTANGULO;
+    }
     Rectangulo(double _ladoA,double _ladoB) {
         ladoA = _ladoA;
         ladoB = _ladoB;
