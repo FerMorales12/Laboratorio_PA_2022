@@ -1,11 +1,16 @@
 #include "Busquedas.h"
 
-int Busquedas::Secuencial(int vector[], int search, int largoV) {
+using namespace System;
+
+int Busquedas::Secuencial(array<int>^ vector, int search, int largoV) {
 	int i;
 	for (i = 0; i < largoV; i++) {
 		//Si v[i]=search devuelve la posición donde lo encontró. De lo contrario, aumenta la i
-		if (vector[i] == search)
+		if (vector[i] == search) {
+			
 			return i;
+			
+		}
 		else
 			i++;
 		//Si i=largoV, devuelve -1, lo que significa que no lo encontró
@@ -15,7 +20,7 @@ int Busquedas::Secuencial(int vector[], int search, int largoV) {
 		
 }
 
-bool Busquedas::Burbuja(int vector[],int largoV) {
+bool Busquedas::Burbuja(array<int>^ vector,int largoV) {
 	int aux, i, j;
 	for (i = 0; i < largoV; i++) {
 		for (j = i + 1; j < largoV; j++) {
@@ -30,7 +35,7 @@ bool Busquedas::Burbuja(int vector[],int largoV) {
 	return false;
 }
 
-int Busquedas::Binario(int vector[], int search, int largoV) {
+int Busquedas::Binario(array<int>^ vector, int search, int largoV) {
 	/*Hasta que vea como puedo llamar a la función burbuja para el if*/
 	bool ordenado = true;
 	

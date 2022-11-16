@@ -129,9 +129,7 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Poligono.h" />
-    <ClInclude Include="Rectangulo.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Triangulo.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -143,8 +141,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Poligono.cpp" />
-    <ClCompile Include="Rectangulo.cpp" />
-    <ClCompile Include="Triangulo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

@@ -4,6 +4,7 @@ using namespace System;
 
 ref class TablaHash
 {
-	//void Tabla();
+public:
+	int funcionHash(int); 
 };
 

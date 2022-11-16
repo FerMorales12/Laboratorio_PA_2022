@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Triangulo.h"
+
 
 using namespace System;
 

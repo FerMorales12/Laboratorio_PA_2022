@@ -52,6 +52,7 @@ namespace Lab7DiegoMorales1209817 {
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::ListBox^ listBox1;
 		   array <int>^ arreglo;
+		   int largo;
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -97,6 +98,7 @@ namespace Lab7DiegoMorales1209817 {
 			this->button3->TabIndex = 2;
 			this->button3->Text = L"Búsqueda Binaria";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// textBox1
 			// 
@@ -163,6 +165,7 @@ namespace Lab7DiegoMorales1209817 {
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm";
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -170,12 +173,12 @@ namespace Lab7DiegoMorales1209817 {
 		}
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-		int largo;
+		
 		try
 		{
 			largo = Convert::ToInt32(textBox1->Text);
 			arreglo = gcnew array<int>(largo);
-			MessageBox::Show("La longitud del arreglo es de: " + largo + " números.");
+			MessageBox::Show("La longitud del arreglo es de " + largo + " números.");
 			Random rnd;
 			for (int i = 0; i < largo; i++)
 			{
@@ -193,9 +196,18 @@ namespace Lab7DiegoMorales1209817 {
 		
 	}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-	Busquedas^ Buscar = gcnew Busquedas();
-	int searched = Convert::ToInt32(textBox2->Text);
+	Busquedas^ buscar = gcnew Busquedas();
+	int buscado = Convert::ToInt32(textBox2->Text);
 	
+	buscar->Secuencial(arreglo, buscado, largo);
+	MessageBox::Show("El elemento " + buscado + " ha sido encontrado");
+	
+}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	Busquedas^ buscar = gcnew Busquedas();
+	int buscado = Convert::ToInt32(textBox2->Text);
+
+	buscar->Binario(arreglo, buscado, largo);
 }
 };
 }
