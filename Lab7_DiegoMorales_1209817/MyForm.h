@@ -143,9 +143,9 @@ namespace Lab7DiegoMorales1209817 {
 			// listBox1
 			// 
 			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(31, 264);
+			this->listBox1->Location = System::Drawing::Point(31, 251);
 			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(110, 69);
+			this->listBox1->Size = System::Drawing::Size(132, 82);
 			this->listBox1->TabIndex = 9;
 			// 
 			// MyForm
@@ -181,7 +181,7 @@ namespace Lab7DiegoMorales1209817 {
 			{
 
 				arreglo[i] = rnd.Next(-10, 50);
-				
+				listBox1->Items->Add(arreglo[i]);
 			}
 			
 		}
