@@ -123,17 +123,23 @@
   <ItemGroup>
     <ClCompile Include="Busquedas.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="TablaHash.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Busquedas.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="TablaHash.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Lab7_DiegoMorales_1209817.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

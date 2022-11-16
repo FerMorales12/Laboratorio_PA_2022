@@ -21,6 +21,9 @@
     <ClCompile Include="Busquedas.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="TablaHash.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -29,5 +32,16 @@
     <ClInclude Include="Busquedas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="TablaHash.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Lab7_DiegoMorales_1209817.rc">
+      <Filter>Archivos de recursos</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

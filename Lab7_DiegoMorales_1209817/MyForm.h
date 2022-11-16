@@ -41,7 +41,7 @@ namespace Lab7DiegoMorales1209817 {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Button^ button4;
-	private: System::Windows::Forms::Label^ label2;
+
 	private: System::Windows::Forms::TextBox^ textBox2;
 	private: System::Windows::Forms::Label^ label3;
 
@@ -50,7 +50,8 @@ namespace Lab7DiegoMorales1209817 {
 		/// Variable del diseñador necesaria.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-
+	private: System::Windows::Forms::ListBox^ listBox1;
+		   array <int>^ arreglo;
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Método necesario para admitir el Diseñador. No se puede modificar
@@ -64,9 +65,9 @@ namespace Lab7DiegoMorales1209817 {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button4 = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -123,15 +124,6 @@ namespace Lab7DiegoMorales1209817 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(30, 281);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(43, 13);
-			this->label2->TabIndex = 6;
-			this->label2->Text = L"Arreglo:";
-			// 
 			// textBox2
 			// 
 			this->textBox2->Location = System::Drawing::Point(45, 219);
@@ -148,14 +140,22 @@ namespace Lab7DiegoMorales1209817 {
 			this->label3->TabIndex = 8;
 			this->label3->Text = L"Elemento a buscar: ";
 			// 
+			// listBox1
+			// 
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->Location = System::Drawing::Point(31, 264);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(110, 69);
+			this->listBox1->TabIndex = 9;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(354, 339);
+			this->Controls->Add(this->listBox1);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox1);
@@ -171,16 +171,25 @@ namespace Lab7DiegoMorales1209817 {
 #pragma endregion
 	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 		int largo;
-		largo = Convert::ToInt32(textBox1->Text);
-		array <int>^ arreglo=gcnew array<int>(largo);
-		MessageBox::Show("La longitud del arreglo es de: " + largo + " números.");
-		Random rnd;
-		for (int i = 0; i < largo; i++)
+		try
 		{
+			largo = Convert::ToInt32(textBox1->Text);
+			arreglo = gcnew array<int>(largo);
+			MessageBox::Show("La longitud del arreglo es de: " + largo + " números.");
+			Random rnd;
+			for (int i = 0; i < largo; i++)
+			{
+
+				arreglo[i] = rnd.Next(-10, 50);
+				
+			}
 			
-			arreglo[i]= rnd.Next(-10, 50);
-			label2->Text = Convert::ToString(arreglo[i]);
 		}
+		catch (Exception ^e)
+		{
+			MessageBox::Show("Ingresa un valor entero y mayor que 0, por favor");
+		}
+		
 		
 	}
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
