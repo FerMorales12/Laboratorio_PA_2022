@@ -127,6 +127,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bahia.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="pch.h" />
@@ -135,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
+    <ClCompile Include="Bahia.cpp" />
     <ClCompile Include="Lista.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="pch.cpp">
